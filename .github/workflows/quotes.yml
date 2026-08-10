@@ -1,0 +1,43 @@
+name: Обновление котировок
+
+on:
+  # Каждые 30 минут в торговые часы Мосбиржи (10:00-19:00 МСК = 07:00-16:00 UTC),
+  # по будням. Время в cron всегда UTC.
+  schedule:
+    - cron: "*/30 7-16 * * 1-5"
+  # Кнопка "Run workflow" во вкладке Actions - для запуска руками
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: quotes
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Собрать котировки
+        run: python fetch_quotes.py
+
+      - name: Закоммитить результат
+        run: |
+          git config user.name  "quotes-bot"
+          git config user.email "quotes-bot@users.noreply.github.com"
+          git add quotes.json quotes.md
+          if git diff --staged --quiet; then
+            echo "Изменений нет, коммит не нужен"
+          else
+            git commit -m "Котировки на $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
