@@ -1,11 +1,8 @@
 name: Обновление котировок
 
 on:
-  # Каждые 30 минут в торговые часы Мосбиржи (10:00-19:00 МСК = 07:00-16:00 UTC),
-  # по будням. Время в cron всегда UTC.
   schedule:
     - cron: "*/30 7-16 * * 1-5"
-  # Кнопка "Run workflow" во вкладке Actions - для запуска руками
   workflow_dispatch:
 
 permissions:
@@ -21,9 +18,11 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - name: Версия workflow
+        run: echo ">>> ВЕРСИЯ 3 <<< если этой строки нет в логе - запустился старый файл"
+
       - uses: actions/checkout@v4
         with:
-          # полная история - нужна, чтобы корректно подтянуть чужие коммиты
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
@@ -37,31 +36,32 @@ jobs:
         run: |
           git config user.name  "quotes-bot"
           git config user.email "quotes-bot@users.noreply.github.com"
+          BRANCH="${GITHUB_REF_NAME}"
 
-          git add quotes.json quotes.md
-          if git diff --staged --quiet; then
-            echo "Изменений нет, коммит не нужен"
-            exit 0
-          fi
+          for i in 1 2 3; do
+            echo "--- попытка $i ---"
 
-          git commit -m "Котировки на $(date -u '+%Y-%m-%d %H:%M UTC')"
+            # Встаём ровно на текущее состояние репозитория,
+            # сохраняя посчитанные файлы в рабочей папке.
+            git fetch origin "$BRANCH"
+            git reset "origin/$BRANCH"
 
-          # Если за время работы в репозиторий что-то попало - подтягиваем
-          # свежее состояние и пробуем снова. Пять попыток с паузой.
-          for i in 1 2 3 4 5; do
-            if git push; then
+            git add quotes.json quotes.md
+            if git diff --staged --quiet; then
+              echo "Изменений нет, коммит не нужен"
+              exit 0
+            fi
+
+            git commit -m "Котировки на $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+            if git push origin "HEAD:$BRANCH"; then
               echo "Отправлено с попытки $i"
               exit 0
             fi
-            echo "Попытка $i не прошла, подтягиваю свежее состояние..."
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || {
-              echo "Конфликт - оставляю свою версию файлов"
-              git checkout --ours quotes.json quotes.md 2>/dev/null || true
-              git add quotes.json quotes.md
-              GIT_EDITOR=true git rebase --continue || git rebase --abort
-            }
+
+            echo "Не прошло, пробую снова через 5 секунд..."
             sleep 5
           done
 
-          echo "Не удалось отправить результат за пять попыток"
+          echo "Не удалось отправить результат за три попытки"
           exit 1
