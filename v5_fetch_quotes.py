@@ -106,7 +106,9 @@ def load_indices():
         if value:
             out[name] = {
                 "value": round(num(value), 2),
-                "change_pct": round(num(m.get("LASTCHANGEPRCNT")), 2),
+                "change_pct": round(num(m.get("LASTCHANGETOOPENPRC")
+                                        or m.get("LASTCHANGEPRCNT")
+                                        or m.get("CHANGE_PRC")), 2),
                 "name": s.get("SHORTNAME") or name,
             }
     print(f"  индексы: {', '.join(out) or 'не получены'}")
@@ -299,15 +301,49 @@ def analyse(row, today):
         "ytm_net": round((xirr(net) or 0) * 100, 2),
         "skipped": None,
     })
+    y = base["ytm_bare"]
+    if y is not None and not (SANE_YIELD[0] <= y <= SANE_YIELD[1]):
+        base["suspect"] = "доходность вне правдоподобного диапазона"
     return base
 
 
+# Инфляционные ОФЗ (52xxx) дают РЕАЛЬНУЮ доходность - их нельзя
+# смешивать с обычными. Амортизируемые 46xxx неликвидны и врут ценой.
+LINKER_PREFIX = ("SU52",)
+AMORT_PREFIX = ("SU46",)
+SANE_YIELD = (8.0, 30.0)     # коридор правдоподобной доходности, %
+CURVE_MIN_VOLUME = 1_000_000  # мёртвые выпуски в кривую не пускаем
+
+
+def curve_point_ok(i):
+    """Годится ли выпуск как опорная точка кривой."""
+    if i["board"] != "TQOB" or i.get("skipped"):
+        return False
+    y = i.get("ytm_bare")
+    if y is None or not (SANE_YIELD[0] <= y <= SANE_YIELD[1]):
+        return False
+    sid = i["secid"]
+    if sid.startswith(LINKER_PREFIX) or sid.startswith(AMORT_PREFIX):
+        return False
+    if num(i.get("volume_rub")) < CURVE_MIN_VOLUME:
+        return False
+    return i["days_left"] > 0
+
+
 def ofz_curve(items):
-    """Кривая ОФЗ: срок в годах -> доходность. Для расчёта спреда."""
+    """Кривая ОФЗ по медианам в корзинах - устойчива к выбросам."""
+    import statistics
+    buckets = [(0, 0.5), (0.5, 1), (1, 2), (2, 3), (3, 5),
+               (5, 7), (7, 10), (10, 15), (15, 40)]
     pts = []
-    for i in items:
-        if i["board"] == "TQOB" and i.get("ytm_bare") and i["days_left"] > 0:
-            pts.append((i["days_left"] / 365.0, i["ytm_bare"]))
+    good = [i for i in items if curve_point_ok(i)]
+    for lo, hi in buckets:
+        ys = [i["ytm_bare"] for i in good if lo <= i["days_left"] / 365.0 < hi]
+        # Меньше трёх выпусков - медиана недостоверна, корзину пропускаем.
+        # Интерполяция перекинет мостик через пропуск.
+        if len(ys) >= 3:
+            pts.append(((lo + hi) / 2, statistics.median(ys)))
+    print(f"  кривая построена по {len(good)} выпускам, {len(pts)} точек")
     return sorted(pts)
 
 
@@ -422,7 +458,9 @@ def main():
     curve = ofz_curve(items)
     for i in items:
         i["spread_bp"] = None
-        if i["board"] == "TQCB" and i.get("ytm_bare"):
+        if (i["board"] == "TQCB" and i.get("ytm_bare")
+                and not i.get("suspect")
+                and SANE_YIELD[0] <= i["ytm_bare"] <= SANE_YIELD[1]):
             ref = curve_yield(curve, i["days_left"] / 365.0)
             if ref:
                 i["spread_bp"] = round((i["ytm_bare"] - ref) * 100, 0)
