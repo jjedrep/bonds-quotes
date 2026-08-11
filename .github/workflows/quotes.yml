@@ -1,11 +1,11 @@
 name: Обновление котировок
 
 on:
-  # Каждые 30 минут в торговые часы Мосбиржи (10:00-19:00 МСК = 07:00-16:00 UTC),
-  # по будням. Время в cron всегда UTC.
+  # Раз в день в 19:05 МСК = 16:05 UTC, по будням.
+  # После закрытия основной сессии (18:40) и аукциона закрытия (18:50),
+  # когда у Мосбиржи готовы официальные цены закрытия.
   schedule:
-    - cron: "*/30 7-16 * * 1-5"
-  # Кнопка "Run workflow" во вкладке Actions - для запуска руками
+    - cron: "5 16 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -18,10 +18,15 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
+      - name: Версия workflow
+        run: echo ">>> ВЕРСИЯ 4 <<< ежедневный снимок, ОФЗ + корпораты + индексы"
+
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -34,10 +39,29 @@ jobs:
         run: |
           git config user.name  "quotes-bot"
           git config user.email "quotes-bot@users.noreply.github.com"
-          git add quotes.json quotes.md
-          if git diff --staged --quiet; then
-            echo "Изменений нет, коммит не нужен"
-          else
-            git commit -m "Котировки на $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
-          fi
+          BRANCH="${GITHUB_REF_NAME}"
+
+          for i in 1 2 3; do
+            echo "--- попытка $i ---"
+            git fetch origin "$BRANCH"
+            git reset "origin/$BRANCH"
+
+            git add quotes.json quotes.md history.csv history_index.csv cache
+            if git diff --staged --quiet; then
+              echo "Изменений нет, коммит не нужен"
+              exit 0
+            fi
+
+            git commit -m "Котировки за $(date -u '+%Y-%m-%d')"
+
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Отправлено с попытки $i"
+              exit 0
+            fi
+
+            echo "Не прошло, пробую снова через 5 секунд..."
+            sleep 5
+          done
+
+          echo "Не удалось отправить результат за три попытки"
+          exit 1
