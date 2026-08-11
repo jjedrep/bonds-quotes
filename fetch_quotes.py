@@ -1,117 +1,220 @@
 #!/usr/bin/env python3
 """
-Снимок котировок облигаций с MOEX ISS + честный расчёт доходности
-по реальным денежным потокам (с налогом и комиссией брокера).
+Ежедневный снимок долгового рынка Мосбиржи.
 
-Запуск: python fetch_quotes.py
-Результат: quotes.json (для машины) и quotes.md (для чтения).
+Забирает:
+  - все рублёвые ОФЗ
+  - корпоративные облигации первого уровня листинга с приличным оборотом
+  - индексы RGBI, RGBITR, IMOEX
+
+Считает доходность по фактическим денежным потокам, с учётом комиссии и НДФЛ.
+Расписания купонов кэшируются в папке cache/ - это экономит сотни запросов.
+
+Результат: quotes.json, quotes.md, history.csv
 """
 
+import csv
 import json
+import os
 import sys
-from datetime import date, datetime
+import time
+from datetime import date, datetime, timedelta
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 
 ISS = "https://iss.moex.com/iss"
-BOARDS = ["TQOB", "TQCB"]          # TQOB - ОФЗ, TQCB - корпоративные
-NDFL = 0.13                        # ставка НДФЛ
-COMMISSION = 0.003                 # комиссия брокера, доля от суммы сделки
-                                   # 0.003 = 0.3% (тариф "Инвестор" Т-Инвестиций)
-                                   # 0.0005 = 0.05% (тариф "Трейдер")
-UA = {"User-Agent": "bonds-quotes/1.0"}
+UA = {"User-Agent": "bonds-quotes/4.0"}
+
+# ---------------------------------------------------------------- настройки
+
+NDFL = 0.13          # ставка НДФЛ. Нерезидент - 0.30. Доход свыше 2.4 млн - 0.15
+COMMISSION = 0.003   # комиссия брокера: 0.003 = 0.3%, 0.0005 = 0.05%
+
+# Фильтр качества корпоративных выпусков.
+# Кредитных рейтингов у ISS нет, поэтому отбираем косвенно.
+LIST_LEVEL_MAX = 1        # 1 = только первый уровень листинга (самый строгий)
+MIN_VOLUME_RUB = 3_000_000  # минимальный оборот за день - отсекает неликвид
+MAX_YEARS = 5             # длиннее 5 лет корпораты не берём
+MAX_CORP = 90             # потолок числа корпоратов, чтобы не долбить ISS
+
+CACHE_DIR = "cache"
+CACHE_DAYS = 7            # как часто перечитывать расписание купонов
+
+INDICES = ["RGBI", "RGBITR", "IMOEX"]
 
 
-def get_json(url):
-    """GET с ISS, с понятной ошибкой вместо трейсбека."""
-    try:
-        with urlopen(Request(url, headers=UA), timeout=30) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except (URLError, HTTPError) as e:
-        print(f"  !! не смог получить {url}: {e}", file=sys.stderr)
-        return None
+# ---------------------------------------------------------------- утилиты
+
+def get_json(url, retries=3):
+    """GET к ISS с повторами - сеть иногда моргает."""
+    for attempt in range(retries):
+        try:
+            with urlopen(Request(url, headers=UA), timeout=30) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except (URLError, HTTPError) as e:
+            if attempt == retries - 1:
+                print(f"  !! {url}: {e}", file=sys.stderr)
+                return None
+            time.sleep(2)
+    return None
 
 
 def as_dicts(block):
-    """Блок ISS вида {columns: [...], data: [[...]]} -> список словарей."""
+    """Блок ISS {columns, data} -> список словарей."""
     if not block:
         return []
-    cols = block["columns"]
-    return [dict(zip(cols, row)) for row in block["data"]]
+    return [dict(zip(block["columns"], row)) for row in block["data"]]
 
 
-def load_watchlist(path="watchlist.txt"):
-    """Читает список бумаг. Пустые строки и # - комментарии."""
-    out = []
+def num(v, default=0.0):
     try:
-        with open(path, encoding="utf-8") as f:
-            for line in f:
-                line = line.split("#")[0].strip()
-                if line:
-                    out.append(line.upper())
-    except FileNotFoundError:
-        print("watchlist.txt не найден - выгружу все ОФЗ", file=sys.stderr)
+        return float(v)
+    except (TypeError, ValueError):
+        return default
+
+
+# ---------------------------------------------------------------- загрузка
+
+def load_board(board):
+    """Целая доска одним запросом: справочник + рыночные данные."""
+    url = (f"{ISS}/engines/stock/markets/bonds/boards/{board}"
+           f"/securities.json?iss.meta=off")
+    data = get_json(url)
+    if not data:
+        return {}
+    secs = {s["SECID"]: s for s in as_dicts(data.get("securities"))}
+    mkt = {m["SECID"]: m for m in as_dicts(data.get("marketdata"))}
+    for secid, s in secs.items():
+        s.update({k: v for k, v in mkt.get(secid, {}).items() if v is not None})
+        s["BOARD"] = board
+    print(f"  {board}: {len(secs)} выпусков")
+    return secs
+
+
+def load_indices():
+    """Индексы: RGBI, RGBITR, IMOEX."""
+    url = f"{ISS}/engines/stock/markets/index/boards/SNDX/securities.json?iss.meta=off"
+    data = get_json(url)
+    out = {}
+    if not data:
+        return out
+    secs = {s["SECID"]: s for s in as_dicts(data.get("securities"))}
+    mkt = {m["SECID"]: m for m in as_dicts(data.get("marketdata"))}
+    for name in INDICES:
+        s, m = secs.get(name, {}), mkt.get(name, {})
+        value = m.get("CURRENTVALUE") or m.get("LASTVALUE") or s.get("PREVPRICE")
+        if value:
+            out[name] = {
+                "value": round(num(value), 2),
+                "change_pct": round(num(m.get("LASTCHANGEPRCNT")), 2),
+                "name": s.get("SHORTNAME") or name,
+            }
+    print(f"  индексы: {', '.join(out) or 'не получены'}")
     return out
 
 
-def load_boards():
-    """Тянет обе доски целиком, один запрос на доску."""
-    rows = {}
-    for board in BOARDS:
-        url = (f"{ISS}/engines/stock/markets/bonds/boards/{board}"
-               f"/securities.json?iss.meta=off")
-        data = get_json(url)
-        if not data:
+def is_rub(row):
+    """Юаневые выпуски ломают расчёт - номинал в другой валюте."""
+    cur = (row.get("FACEUNIT") or row.get("CURRENCYID") or "SUR").upper()
+    return cur in ("SUR", "RUB")
+
+
+def years_left(row, today):
+    d = row.get("MATDATE")
+    if not d or d == "0000-00-00":
+        return None
+    try:
+        return (datetime.strptime(d, "%Y-%m-%d").date() - today).days / 365.0
+    except ValueError:
+        return None
+
+
+def pick_corporates(board, today):
+    """Отбор качественных корпоратов: листинг, оборот, срок, не для квалов."""
+    picked = []
+    for secid, row in board.items():
+        if not is_rub(row):
             continue
-        secs = {s["SECID"]: s for s in as_dicts(data.get("securities"))}
-        mkt = {m["SECID"]: m for m in as_dicts(data.get("marketdata"))}
-        for secid, s in secs.items():
-            s.update({k: v for k, v in mkt.get(secid, {}).items()
-                      if v is not None})
-            s["BOARD"] = board
-            rows[secid] = s
-        print(f"  {board}: {len(secs)} бумаг")
-    return rows
+        if row.get("ISQUALIFIEDINVESTORS") in (1, "1"):
+            continue
+        level = row.get("LISTLEVEL")
+        if level is None or int(num(level, 99)) > LIST_LEVEL_MAX:
+            continue
+        if num(row.get("VALTODAY")) < MIN_VOLUME_RUB:
+            continue
+        yl = years_left(row, today)
+        if yl is None or not (0 < yl <= MAX_YEARS):
+            continue
+        picked.append((num(row.get("VALTODAY")), secid))
+    picked.sort(reverse=True)
+    result = [s for _, s in picked[:MAX_CORP]]
+    print(f"  корпоратов после фильтра: {len(result)} "
+          f"(листинг {LIST_LEVEL_MAX}, оборот от {MIN_VOLUME_RUB:,} руб)")
+    return result
 
 
-def pick_price(row):
-    """Цена в % от номинала. Днём - последняя сделка, ночью - закрытие."""
-    for key in ("LAST", "MARKETPRICE", "LCLOSEPRICE", "WAPRICE", "PREVPRICE"):
-        v = row.get(key)
-        if v:
-            return float(v), key
-    return None, None
-
+# ---------------------------------------------------------------- кэш купонов
 
 def cashflows(secid, today):
-    """Будущие купоны и погашения тела из справочника ISS."""
-    url = f"{ISS}/securities/{secid}/bondization.json?iss.meta=off&limit=unlimited"
-    data = get_json(url)
-    if not data:
-        return [], []
+    """Будущие купоны и погашения. Кэшируется - расписание меняется редко."""
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    path = os.path.join(CACHE_DIR, f"{secid}.json")
 
-    coupons = []
-    for c in as_dicts(data.get("coupons")):
-        d, v = c.get("coupondate"), c.get("value_rub") or c.get("value")
-        if d and v:
-            d = datetime.strptime(d, "%Y-%m-%d").date()
-            if d > today:
-                coupons.append((d, float(v)))
+    raw = None
+    if os.path.exists(path):
+        try:
+            cached = json.load(open(path, encoding="utf-8"))
+            fetched = datetime.strptime(cached["fetched"], "%Y-%m-%d").date()
+            if (today - fetched).days < CACHE_DAYS:
+                raw = cached["data"]
+        except Exception:
+            raw = None
+
+    if raw is None:
+        url = (f"{ISS}/securities/{secid}/bondization.json"
+               f"?iss.meta=off&limit=unlimited")
+        data = get_json(url)
+        if not data:
+            return [], [], False
+        raw = {"coupons": as_dicts(data.get("coupons")),
+               "amortizations": as_dicts(data.get("amortizations"))}
+        try:
+            json.dump({"fetched": today.isoformat(), "data": raw},
+                      open(path, "w", encoding="utf-8"), ensure_ascii=False)
+        except OSError:
+            pass
+
+    coupons, unknown = [], False
+    for c in raw["coupons"]:
+        d = c.get("coupondate")
+        if not d:
+            continue
+        d = datetime.strptime(d, "%Y-%m-%d").date()
+        if d <= today:
+            continue
+        v = c.get("value_rub") or c.get("value")
+        if v in (None, 0, "0"):
+            unknown = True          # флоатер: купон ещё не объявлен
+            continue
+        coupons.append((d, float(v)))
 
     principal = []
-    for a in as_dicts(data.get("amortizations")):
-        d, v = a.get("amortdate"), a.get("value_rub") or a.get("value")
+    for a in raw["amortizations"]:
+        d = a.get("amortdate")
+        v = a.get("value_rub") or a.get("value")
         if d and v:
             d = datetime.strptime(d, "%Y-%m-%d").date()
             if d > today:
                 principal.append((d, float(v)))
 
-    return sorted(coupons), sorted(principal)
+    return sorted(coupons), sorted(principal), unknown
 
+
+# ---------------------------------------------------------------- расчёт
 
 def xirr(flows, lo=-0.95, hi=10.0):
-    """Эффективная годовая доходность (IRR) методом деления пополам."""
-    if not flows:
+    """Эффективная годовая доходность методом деления пополам."""
+    if len(flows) < 2:
         return None
     t0 = flows[0][0]
 
@@ -129,13 +232,20 @@ def xirr(flows, lo=-0.95, hi=10.0):
     return (lo + hi) / 2
 
 
-def analyse(row, today):
-    """Считает всё по одной бумаге."""
-    secid = row["SECID"]
-    face = float(row.get("FACEVALUE") or 1000)
-    accint = float(row.get("ACCRUEDINT") or 0)
+def pick_price(row):
+    for key in ("LAST", "MARKETPRICE", "LCLOSEPRICE", "WAPRICE", "PREVPRICE"):
+        v = row.get(key)
+        if v:
+            return float(v), key
+    return None, None
 
-    price_pct, price_src = pick_price(row)
+
+def analyse(row, today):
+    secid = row["SECID"]
+    face = num(row.get("FACEVALUE"), 1000)
+    accint = num(row.get("ACCRUEDINT"))
+
+    price_pct, src = pick_price(row)
     if price_pct is None:
         return None
 
@@ -143,114 +253,200 @@ def analyse(row, today):
     commission = (clean + accint) * COMMISSION
     paid = clean + accint + commission
 
-    coupons, principal = cashflows(secid, today)
+    coupons, principal, unknown = cashflows(secid, today)
     if not principal:
         return None
 
-    coupon_sum = sum(v for _, v in coupons)
-    principal_sum = sum(v for _, v in principal)
-
-    # НДФЛ: база = все поступления минус все затраты (НКД и комиссия - расход)
-    profit = coupon_sum + principal_sum - paid
-    tax = max(0.0, profit) * NDFL
-
-    last_day = max(d for d, _ in principal)
-    days = (last_day - today).days
-
-    gross = [(today, -paid)] + coupons + principal
-    net = [(today, -paid)] + coupons + principal[:-1] + \
-          [(last_day, principal[-1][1] - tax)]
-
-    return {
+    base = {
         "secid": secid,
         "name": (row.get("SHORTNAME") or "").strip(),
         "isin": row.get("ISIN"),
         "board": row.get("BOARD"),
+        "list_level": row.get("LISTLEVEL"),
         "price_pct": round(price_pct, 2),
-        "price_source": price_src,
+        "price_source": src,
         "accrued_int": round(accint, 2),
-        "cost_per_bond": round(paid, 2),
-        "maturity": last_day.isoformat(),
-        "days_left": days,
-        "payments_left": len(coupons) + len(principal),
-        "coupon_value": row.get("COUPONVALUE"),
-        "next_coupon": row.get("NEXTCOUPON"),
-        "profit_rub": round(profit, 2),
-        "tax_rub": round(tax, 2),
-        "commission_rub": round(commission, 2),
-        "ytm_gross": round((xirr(gross) or 0) * 100, 2),
-        "ytm_net": round((xirr(net) or 0) * 100, 2),
-        "moex_yield": row.get("YIELD"),
-        "duration_days": row.get("DURATION"),
+        "maturity": max(d for d, _ in principal).isoformat(),
+        "days_left": (max(d for d, _ in principal) - today).days,
         "volume_rub": row.get("VALTODAY"),
+        "moex_yield": row.get("YIELD"),
+        "moex_duration_days": row.get("DURATION"),
     }
 
+    if unknown:
+        base.update({"skipped": "флоатер: купоны не объявлены",
+                     "ytm_bare": None, "ytm_gross": None, "ytm_net": None})
+        return base
 
-def to_markdown(items, today):
-    head = (f"# Котировки облигаций\n\n"
-            f"Снимок: **{datetime.utcnow():%Y-%m-%d %H:%M} UTC**  \n"
-            f"Комиссия в расчёте: {COMMISSION * 100:g}% · НДФЛ: {NDFL * 100:g}%\n\n"
-            "| Бумага | Цена, % | НКД | Затраты | Погашение | Дней | "
-            "Дох. до налога | Дох. чистая | YTM Мосбиржи |\n"
-            "|---|---|---|---|---|---|---|---|---|\n")
-    body = ""
+    coupon_sum = sum(v for _, v in coupons)
+    principal_sum = sum(v for _, v in principal)
+    profit = coupon_sum + principal_sum - paid
+    tax = max(0.0, profit) * NDFL
+    last_day = max(d for d, _ in principal)
+
+    bare = [(today, -(clean + accint))] + coupons + principal
+    gross = [(today, -paid)] + coupons + principal
+    net = [(today, -paid)] + coupons + principal[:-1] + \
+          [(last_day, principal[-1][1] - tax)]
+
+    base.update({
+        "cost_per_bond": round(paid, 2),
+        "commission_rub": round(commission, 2),
+        "tax_rub": round(tax, 2),
+        "profit_rub": round(profit, 2),
+        "ytm_bare": round((xirr(bare) or 0) * 100, 2),
+        "ytm_gross": round((xirr(gross) or 0) * 100, 2),
+        "ytm_net": round((xirr(net) or 0) * 100, 2),
+        "skipped": None,
+    })
+    return base
+
+
+def ofz_curve(items):
+    """Кривая ОФЗ: срок в годах -> доходность. Для расчёта спреда."""
+    pts = []
     for i in items:
-        body += (f"| {i['name']} ({i['secid']}) | {i['price_pct']} | "
-                 f"{i['accrued_int']} | {i['cost_per_bond']} | "
-                 f"{i['maturity']} | {i['days_left']} | "
-                 f"{i['ytm_gross']}% | **{i['ytm_net']}%** | "
-                 f"{i['moex_yield'] or '-'} |\n")
-    tail = ("\n*Чистая доходность — после НДФЛ и комиссии, расчёт по фактическим "
-            "денежным потокам. Расчёт от даты снимка, без учёта режима Т+1.*\n")
-    return head + body + tail
+        if i["board"] == "TQOB" and i.get("ytm_bare") and i["days_left"] > 0:
+            pts.append((i["days_left"] / 365.0, i["ytm_bare"]))
+    return sorted(pts)
 
+
+def curve_yield(curve, years):
+    """Доходность ОФЗ на нужном сроке - линейной интерполяцией."""
+    if not curve:
+        return None
+    if years <= curve[0][0]:
+        return curve[0][1]
+    if years >= curve[-1][0]:
+        return curve[-1][1]
+    for (x1, y1), (x2, y2) in zip(curve, curve[1:]):
+        if x1 <= years <= x2:
+            if x2 == x1:
+                return y1
+            return y1 + (y2 - y1) * (years - x1) / (x2 - x1)
+    return None
+
+
+# ---------------------------------------------------------------- вывод
+
+def write_history(items, indices, today):
+    """Дописывает строку за день. Через месяц будет с чем сравнивать."""
+    new = not os.path.exists("history.csv")
+    with open("history.csv", "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if new:
+            w.writerow(["date", "secid", "name", "price_pct",
+                        "ytm_bare", "ytm_net", "spread_bp"])
+        for i in items:
+            if i.get("ytm_bare") is not None:
+                w.writerow([today, i["secid"], i["name"], i["price_pct"],
+                            i["ytm_bare"], i["ytm_net"],
+                            i.get("spread_bp", "")])
+
+    new = not os.path.exists("history_index.csv")
+    with open("history_index.csv", "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if new:
+            w.writerow(["date", "index", "value", "change_pct"])
+        for k, v in indices.items():
+            w.writerow([today, k, v["value"], v["change_pct"]])
+
+
+def to_markdown(items, indices, today):
+    out = [f"# Долговой рынок на {today}",
+           f"\nСнимок: {datetime.utcnow():%Y-%m-%d %H:%M} UTC  ",
+           f"Комиссия {COMMISSION * 100:g}% · НДФЛ {NDFL * 100:g}%\n"]
+
+    if indices:
+        out.append("## Индексы\n")
+        out.append("| Индекс | Значение | Изм. за день |")
+        out.append("|---|---|---|")
+        for k, v in indices.items():
+            out.append(f"| {k} | {v['value']} | {v['change_pct']:+.2f}% |")
+        out.append("")
+
+    for board, title in (("TQOB", "ОФЗ"), ("TQCB", "Корпоративные")):
+        rows = [i for i in items if i["board"] == board]
+        if not rows:
+            continue
+        out.append(f"\n## {title}\n")
+        out.append("| Бумага | Цена | НКД | Погашение | Дней | Без издержек | "
+                   "Чистая | Спред к ОФЗ | Оборот |")
+        out.append("|---|---|---|---|---|---|---|---|---|")
+        for i in rows:
+            if i.get("skipped"):
+                out.append(f"| {i['name']} | {i['price_pct']} | "
+                           f"{i['accrued_int']} | {i['maturity']} | "
+                           f"{i['days_left']} | — | _{i['skipped']}_ | — | — |")
+                continue
+            sp = f"{i['spread_bp']:+.0f} б.п." if i.get("spread_bp") is not None else "—"
+            vol = f"{num(i['volume_rub']) / 1e6:.1f} млн" if i.get("volume_rub") else "—"
+            out.append(f"| {i['name']} | {i['price_pct']} | {i['accrued_int']} | "
+                       f"{i['maturity']} | {i['days_left']} | {i['ytm_bare']}% | "
+                       f"**{i['ytm_net']}%** | {sp} | {vol} |")
+
+    out.append("\n*Спред — превышение доходности над кривой ОФЗ на том же сроке. "
+               "Чистая доходность — после комиссии и НДФЛ.*")
+    return "\n".join(out)
+
+
+# ---------------------------------------------------------------- главное
 
 def main():
     today = date.today()
-    print(f"Загружаю доски ISS ({today})...")
-    boards = load_boards()
-    if not boards:
-        print("Не получил данных с ISS.", file=sys.stderr)
-        sys.exit(1)
+    print(f"Снимок за {today}")
 
-    wanted = load_watchlist()
-    if wanted:
-        by_isin = {v.get("ISIN"): k for k, v in boards.items() if v.get("ISIN")}
-        targets = []
-        for w in wanted:
-            if w in boards:
-                targets.append(w)
-            elif w in by_isin:
-                targets.append(by_isin[w])
-            else:
-                print(f"  ? не нашёл на бирже: {w}", file=sys.stderr)
-    else:
-        targets = [k for k, v in boards.items() if v["BOARD"] == "TQOB"]
+    print("Загружаю доски...")
+    ofz = load_board("TQOB")
+    corp = load_board("TQCB")
+    indices = load_indices()
 
-    print(f"Считаю доходности: {len(targets)} бумаг...")
+    ofz = {k: v for k, v in ofz.items() if is_rub(v)}
+    corp_ids = pick_corporates(corp, today)
+
+    targets = [(k, v) for k, v in ofz.items()]
+    targets += [(s, corp[s]) for s in corp_ids]
+
+    print(f"Считаю доходности: {len(targets)} выпусков "
+          f"(расписания купонов берутся из кэша)...")
     items = []
-    for secid in targets:
+    for secid, row in targets:
         try:
-            r = analyse(boards[secid], today)
+            r = analyse(row, today)
             if r:
                 items.append(r)
         except Exception as e:
             print(f"  !! {secid}: {e}", file=sys.stderr)
 
-    items.sort(key=lambda x: x["ytm_net"], reverse=True)
+    # спред к кривой ОФЗ
+    curve = ofz_curve(items)
+    for i in items:
+        i["spread_bp"] = None
+        if i["board"] == "TQCB" and i.get("ytm_bare"):
+            ref = curve_yield(curve, i["days_left"] / 365.0)
+            if ref:
+                i["spread_bp"] = round((i["ytm_bare"] - ref) * 100, 0)
+
+    items.sort(key=lambda x: (x["board"] != "TQOB",
+                              -(x.get("ytm_net") or -99)))
 
     payload = {
         "generated_utc": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "trade_date": today.isoformat(),
-        "assumptions": {"ndfl": NDFL, "commission": COMMISSION},
+        "assumptions": {"ndfl": NDFL, "commission": COMMISSION,
+                        "list_level_max": LIST_LEVEL_MAX,
+                        "min_volume_rub": MIN_VOLUME_RUB},
+        "indices": indices,
         "bonds": items,
     }
-    with open("quotes.json", "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-    with open("quotes.md", "w", encoding="utf-8") as f:
-        f.write(to_markdown(items, today))
+    json.dump(payload, open("quotes.json", "w", encoding="utf-8"),
+              ensure_ascii=False, indent=2)
+    open("quotes.md", "w", encoding="utf-8").write(
+        to_markdown(items, indices, today))
+    write_history(items, indices, today)
 
-    print(f"Готово: {len(items)} бумаг -> quotes.json, quotes.md")
+    ok = sum(1 for i in items if not i.get("skipped"))
+    print(f"Готово: {ok} посчитано, {len(items) - ok} пропущено (флоатеры)")
 
 
 if __name__ == "__main__":
