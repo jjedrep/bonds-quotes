@@ -1,0 +1,1 @@
+{"fetched": "2026-08-17", "data": {"coupons": [], "amortizations": [{"isin": "RU000A10BZH8", "name": "Сбербанк ПАО 001Р-SBERD7", "issuevalue": 20000000000, "amortdate": "2030-07-11", "facevalue": 1000, "initialfacevalue": 1000, "faceunit": "RUB", "valueprc": 100, "value": 1000, "value_rub": 1000, "data_source": "maturity", "secid": "RU000A10BZH8", "primary_boardid": "TQCB"}]}}
