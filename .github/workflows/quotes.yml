@@ -2,8 +2,6 @@ name: Обновление котировок
 
 on:
   # Раз в день в 19:05 МСК = 16:05 UTC, по будням.
-  # После закрытия основной сессии (18:40) и аукциона закрытия (18:50),
-  # когда у Мосбиржи готовы официальные цены закрытия.
   schedule:
     - cron: "5 16 * * 1-5"
   workflow_dispatch:
@@ -18,11 +16,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Версия workflow
-        run: echo ">>> ВЕРСИЯ 4 <<< ежедневный снимок, ОФЗ + корпораты + индексы"
+        run: echo ">>> ВЕРСИЯ 5 <<< облигации + акции"
 
       - uses: actions/checkout@v4
         with:
@@ -32,8 +30,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Собрать котировки
+      - name: Облигации
         run: python fetch_quotes.py
+
+      # continue-on-error: если модуль акций упадёт, облигации всё равно
+      # сохранятся. Они уже работают, ломать их экспериментом не хочется.
+      - name: Акции
+        run: python fetch_stocks.py
+        continue-on-error: true
 
       - name: Закоммитить результат
         run: |
@@ -46,13 +50,13 @@ jobs:
             git fetch origin "$BRANCH"
             git reset "origin/$BRANCH"
 
-            git add quotes.json quotes.md history.csv history_index.csv cache
+            git add -A
             if git diff --staged --quiet; then
               echo "Изменений нет, коммит не нужен"
               exit 0
             fi
 
-            git commit -m "Котировки за $(date -u '+%Y-%m-%d')"
+            git commit -m "Данные за $(date -u '+%Y-%m-%d')"
 
             if git push origin "HEAD:$BRANCH"; then
               echo "Отправлено с попытки $i"
