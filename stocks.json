@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-08-19T09:14:20Z",
+  "generated_utc": "2026-08-19T09:21:31Z",
   "trade_date": "2026-08-19",
-  "imoex": 2147.39,
+  "imoex": 2146.62,
   "horizon_days": 30,
   "evaluation": null,
   "market_regime": {
@@ -37,7 +37,7 @@
       "reversal_1m": 10.42,
       "pos_52w": 55.9,
       "volatility": 39.2,
-      "turnover_rub": 19507251.0,
+      "turnover_rub": 19639474.0,
       "ranks": {
         "импульс": 1,
         "разворот": 12,
@@ -58,7 +58,7 @@
       "reversal_1m": 6.05,
       "pos_52w": 38.1,
       "volatility": 38.9,
-      "turnover_rub": 234224853.0,
+      "turnover_rub": 239369458.0,
       "ranks": {
         "импульс": 5,
         "разворот": 6,
@@ -79,7 +79,7 @@
       "reversal_1m": 7.64,
       "pos_52w": 41.0,
       "volatility": 42.0,
-      "turnover_rub": 57341215.0,
+      "turnover_rub": 58847083.0,
       "ranks": {
         "импульс": 6,
         "разворот": 7,
@@ -100,7 +100,7 @@
       "reversal_1m": 17.72,
       "pos_52w": 54.5,
       "volatility": 34.2,
-      "turnover_rub": 23364469.0,
+      "turnover_rub": 23645559.0,
       "ranks": {
         "импульс": 2,
         "разворот": 17,
@@ -121,7 +121,7 @@
       "reversal_1m": 12.55,
       "pos_52w": 32.6,
       "volatility": 31.9,
-      "turnover_rub": 143528955.0,
+      "turnover_rub": 156154664.0,
       "ranks": {
         "импульс": 9,
         "разворот": 13,
@@ -142,7 +142,7 @@
       "reversal_1m": 9.09,
       "pos_52w": 27.8,
       "volatility": 47.8,
-      "turnover_rub": 849946144.0,
+      "turnover_rub": 875703694.0,
       "ranks": {
         "импульс": 3,
         "разворот": 11,
@@ -163,7 +163,7 @@
       "reversal_1m": 18.48,
       "pos_52w": 59.1,
       "volatility": 45.2,
-      "turnover_rub": 174040429.0,
+      "turnover_rub": 176988523.0,
       "ranks": {
         "импульс": 4,
         "разворот": 18,
@@ -184,7 +184,7 @@
       "reversal_1m": 8.17,
       "pos_52w": 22.9,
       "volatility": 44.1,
-      "turnover_rub": 119355124.0,
+      "turnover_rub": 125282099.0,
       "ranks": {
         "импульс": 7,
         "разворот": 8,
@@ -205,7 +205,7 @@
       "reversal_1m": -0.19,
       "pos_52w": 11.6,
       "volatility": 41.1,
-      "turnover_rub": 1367574929.0,
+      "turnover_rub": 1400715686.0,
       "ranks": {
         "импульс": 11,
         "разворот": 3,
@@ -226,7 +226,7 @@
       "reversal_1m": -0.66,
       "pos_52w": 11.0,
       "volatility": 45.1,
-      "turnover_rub": 922305316.0,
+      "turnover_rub": 943755660.0,
       "ranks": {
         "импульс": 8,
         "разворот": 2,
@@ -247,7 +247,7 @@
       "reversal_1m": 0.32,
       "pos_52w": 17.4,
       "volatility": 54.8,
-      "turnover_rub": 24651464.0,
+      "turnover_rub": 24740533.0,
       "ranks": {
         "импульс": 10,
         "разворот": 4,
@@ -268,7 +268,7 @@
       "reversal_1m": 8.63,
       "pos_52w": 15.3,
       "volatility": 51.6,
-      "turnover_rub": 11650786.0,
+      "turnover_rub": 11761313.0,
       "ranks": {
         "импульс": 12,
         "разворот": 9,
@@ -289,7 +289,7 @@
       "reversal_1m": 13.14,
       "pos_52w": 20.5,
       "volatility": 49.8,
-      "turnover_rub": 311163107.0,
+      "turnover_rub": 330649387.0,
       "ranks": {
         "импульс": 14,
         "разворот": 14,
@@ -310,7 +310,7 @@
       "reversal_1m": -2.09,
       "pos_52w": 8.2,
       "volatility": 62.3,
-      "turnover_rub": 393175515.0,
+      "turnover_rub": 397483626.0,
       "ranks": {
         "импульс": 16,
         "разворот": 1,
@@ -331,7 +331,7 @@
       "reversal_1m": 8.82,
       "pos_52w": 14.0,
       "volatility": 52.5,
-      "turnover_rub": 146894513.0,
+      "turnover_rub": 153819201.0,
       "ranks": {
         "импульс": 17,
         "разворот": 10,
@@ -352,7 +352,7 @@
       "reversal_1m": 14.26,
       "pos_52w": 23.0,
       "volatility": 63.4,
-      "turnover_rub": 57832470.0,
+      "turnover_rub": 58186490.0,
       "ranks": {
         "импульс": 13,
         "разворот": 15,
@@ -373,7 +373,7 @@
       "reversal_1m": 17.13,
       "pos_52w": 25.7,
       "volatility": 57.0,
-      "turnover_rub": 659089403.0,
+      "turnover_rub": 680609928.0,
       "ranks": {
         "импульс": 15,
         "разворот": 16,
@@ -394,7 +394,7 @@
       "reversal_1m": 2.96,
       "pos_52w": 11.4,
       "volatility": 73.2,
-      "turnover_rub": 1010905948.0,
+      "turnover_rub": 1053620744.0,
       "ranks": {
         "импульс": 18,
         "разворот": 5,
@@ -415,7 +415,7 @@
       "reversal_1m": 70.74,
       "pos_52w": 100.0,
       "volatility": 64.8,
-      "turnover_rub": 618185741.0,
+      "turnover_rub": 627371821.0,
       "rank": null
     }
   ]
