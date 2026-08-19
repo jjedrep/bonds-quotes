@@ -33,7 +33,7 @@ TOP_N = 5                 # размер групп "топ" и "дно"
 
 # Берём все бумаги индекса. Оборот больше не фильтр, а справочная
 # колонка - смотреть на неё стоит перед сделкой, а не при отборе.
-MIN_TURNOVER = 0
+MIN_TURNOVER = 10_000_000   # отсекает совсем неторгуемые бумаги
 
 # Скачок цены за один день больше 25% - почти наверняка не рынок,
 # а корпоративное действие: сплит, консолидация, допэмиссия.
@@ -71,7 +71,8 @@ def num(v, default=None):
 
 def index_members():
     """Бумаги, входящие в IMOEX, с их весами."""
-    url = f"{ISS}/statistics/engines/stock/markets/index/analytics/IMOEX.json?iss.meta=off"
+    url = (f"{ISS}/statistics/engines/stock/markets/index/analytics"
+           f"/IMOEX.json?iss.meta=off&limit=100")
     data = get_json(url)
     out = {}
     if not data:
@@ -146,12 +147,20 @@ def fetch_history(secid, since, until):
     return rows
 
 
+MIN_HISTORY = 240          # столько дней нужно для расчёта факторов
+
+
 def history_for(secid, today):
-    """История из кэша, добираем только недостающие дни."""
+    """История из кэша. Если кэш неполный - перекачиваем целиком."""
     cached = load_cache(secid)
     since = (today - timedelta(days=365 * HIST_YEARS)).isoformat()
+    need_from = (today - timedelta(days=int(365 * 1.2))).isoformat()
 
-    if cached:
+    # Кэш считаем годным, только если он и длинный, и начинается достаточно
+    # рано. Иначе оборванная загрузка навсегда оставила бы бумагу битой.
+    cache_ok = (len(cached) >= MIN_HISTORY and cached[0][0] <= need_from)
+
+    if cache_ok:
         last = cached[-1][0]
         if last >= today.isoformat():
             return cached
@@ -159,6 +168,9 @@ def history_for(secid, today):
         seen = {d for d, _, _ in cached}
         merged = cached + [r for r in fresh if r[0] not in seen]
     else:
+        if cached:
+            print(f"    {secid}: кэш неполный ({len(cached)} дней) - "
+                  f"качаю заново")
         merged = fetch_history(secid, since, today.isoformat())
 
     merged = sorted(set(merged))
@@ -180,7 +192,7 @@ def find_jump(closes):
 
 def factors(secid, hist, snap):
     """Считает факторы по одной бумаге. None - если данных не хватает."""
-    if len(hist) < 260:                      # меньше года истории - пропуск
+    if len(hist) < MIN_HISTORY:              # меньше года истории - пропуск
         return None
 
     closes = [c for _, c, _ in hist]
@@ -383,11 +395,12 @@ def to_markdown(items, today, check, imoex, regime=None):
     items = [i for i in items if i.get("rank")]
 
     out.append("\n## Рейтинг\n")
-    out.append("| # | Бумага | Цена | Импульс 12-1 | Мес. изм. | "
+    out.append("| # | Бумага | В индексе | Цена | Импульс 12-1 | Мес. изм. | "
                "Годовой диапазон | Волат. | Оборот |")
-    out.append("|---|---|---|---|---|---|---|---|")
+    out.append("|---|---|---|---|---|---|---|---|---|")
     for i in items:
-        out.append(f"| {i['rank']} | {i['name']} | {i['price']} | "
+        out.append(f"| {i['rank']} | {i['name']} | "
+                   f"{'да' if i.get('in_index') else '—'} | {i['price']} | "
                    f"{i['momentum_12_1']:+.1f}% | {i['reversal_1m']:+.1f}% | "
                    f"{i['pos_52w']:.0f}% | {i['volatility']:.0f}% | "
                    f"{i['turnover_rub'] / 1e6:.0f} млн |")
@@ -424,20 +437,37 @@ def main():
             if m.get("SECID") == "IMOEX":
                 imoex = num(m.get("CURRENTVALUE") or m.get("LASTVALUE"))
 
-    targets = [s for s in (members or snap)
-               if s in snap and num(snap[s].get("VALTODAY"), 0) >= MIN_TURNOVER]
-    print(f"  после фильтра по обороту: {len(targets)}")
+    # Не полагаемся на эндпоинт состава индекса - он отдаёт список
+    # неполностью. Берём всю доску акций и фильтруем по обороту.
+    # Принадлежность к IMOEX остаётся пометкой, а не условием отбора.
+    targets = [sid for sid, row in snap.items()
+               if num(row.get("VALTODAY"), 0) >= MIN_TURNOVER]
+    print(f"  состав IMOEX (справочно): {len(members)}")
+    print(f"  вся доска: {len(snap)}, после фильтра по обороту: {len(targets)}")
+    if len(members) < 30:
+        print("  ! список индекса пришёл неполным - работаем по всей доске")
 
     print("  подгружаю историю цен (кэш экономит запросы)...")
-    items = []
+    items, dropped = [], []
     for sid in targets:
         try:
             hist = history_for(sid, today)
+            if len(hist) < MIN_HISTORY:
+                dropped.append((sid, f"истории всего {len(hist)} дней"))
+                continue
             f = factors(sid, hist, snap[sid])
             if f:
+                f["in_index"] = sid in members
                 items.append(f)
+            else:
+                dropped.append((sid, "не хватило данных для факторов"))
         except Exception as e:
+            dropped.append((sid, f"ошибка: {e}"))
             print(f"  !! {sid}: {e}", file=sys.stderr)
+
+    print(f"  в рейтинг попало: {len(items)}, отсеяно: {len(dropped)}")
+    for sid, why in dropped:
+        print(f"    - {sid}: {why}")
 
     if len(items) < 10:
         print(f"Слишком мало бумаг с историей ({len(items)}) - "
@@ -459,6 +489,9 @@ def main():
         "horizon_days": HORIZON_DAYS,
         "evaluation": check,
         "market_regime": regime,
+        "dropped": [{"secid": s, "reason": w} for s, w in dropped],
+        "universe": {"index_members": len(members), "board": len(snap),
+                     "targets": len(targets), "ranked": len(items)},
         "top": top,
         "bottom": bottom,
         "stocks": items,
