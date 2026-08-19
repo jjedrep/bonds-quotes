@@ -31,9 +31,14 @@ HIST_YEARS = 2            # сколько истории тянуть при п
 HORIZON_DAYS = 30         # горизонт прогноза - месяц
 TOP_N = 5                 # размер групп "топ" и "дно"
 
-# Минимальный оборот: неликвид даёт красивые сигналы, которые
-# невозможно реализовать - спред съест всё.
-MIN_TURNOVER = 20_000_000
+# Берём все бумаги индекса. Оборот больше не фильтр, а справочная
+# колонка - смотреть на неё стоит перед сделкой, а не при отборе.
+MIN_TURNOVER = 0
+
+# Скачок цены за один день больше 25% - почти наверняка не рынок,
+# а корпоративное действие: сплит, консолидация, допэмиссия.
+# Такие бумаги из рейтинга убираем, иначе они всплывают наверх зря.
+JUMP_THRESHOLD = 0.25
 
 
 def get_json(url, retries=3):
@@ -164,6 +169,15 @@ def history_for(secid, today):
 
 # ------------------------------------------------------------ факторы
 
+def find_jump(closes):
+    """Ищет неправдоподобный дневной скачок за последний год."""
+    tail = closes[-252:]
+    for i in range(1, len(tail)):
+        if tail[i - 1] and abs(tail[i] / tail[i - 1] - 1) > JUMP_THRESHOLD:
+            return round((tail[i] / tail[i - 1] - 1) * 100, 1)
+    return None
+
+
 def factors(secid, hist, snap):
     """Считает факторы по одной бумаге. None - если данных не хватает."""
     if len(hist) < 260:                      # меньше года истории - пропуск
@@ -171,6 +185,7 @@ def factors(secid, hist, snap):
 
     closes = [c for _, c, _ in hist]
     last = closes[-1]
+    jump = find_jump(closes)
 
     def ret(days_ago_from, days_ago_to=0):
         """Доходность между двумя точками в прошлом."""
@@ -206,6 +221,9 @@ def factors(secid, hist, snap):
         "secid": secid,
         "name": (snap.get("SHORTNAME") or secid).strip(),
         "price": last,
+        "jump_pct": jump,
+        "excluded": ("скачок цены %+.0f%% за день - вероятно корпоративное "
+                     "действие, а не рынок" % jump) if jump else None,
         "momentum_12_1": round(momentum, 2),
         "reversal_1m": round(reversal, 2),
         "pos_52w": round(pos52, 1),
@@ -214,11 +232,12 @@ def factors(secid, hist, snap):
     }
 
 
-def rank_all(items):
+def rank_all(all_items):
     """Ранжирование: складываем ранги по факторам. Устойчивее весов."""
+    items = [i for i in all_items if not i.get("excluded")]
     n = len(items)
     if n < 10:
-        return items
+        return all_items
 
     def assign(key, reverse, label):
         order = sorted(items, key=lambda x: x[key], reverse=reverse)
@@ -237,15 +256,50 @@ def rank_all(items):
     items.sort(key=lambda x: x["score"])
     for pos, it in enumerate(items, 1):
         it["rank"] = pos
-    return items
+    excluded = [i for i in all_items if i.get("excluded")]
+    for i in excluded:
+        i["rank"] = None
+    return items + excluded
 
 
 # ------------------------------------------------------------ эксперимент
 
+def market_regime(items):
+    """Честный ответ на вопрос: а есть ли вообще что покупать."""
+    ranked = [i for i in items if i.get("rank")]
+    if not ranked:
+        return None
+    up = sum(1 for i in ranked if i["momentum_12_1"] > 0)
+    share = up / len(ranked)
+    near_high = sum(1 for i in ranked if i["pos_52w"] > 70) / len(ranked)
+
+    if share < 0.15:
+        verdict = ("Падающий рынок. Растущих бумаг почти нет, "
+                   "рейтинг показывает лишь кто упал меньше. "
+                   "Покупать по импульсу нечего.")
+    elif share < 0.40:
+        verdict = ("Слабый рынок. Растёт меньшинство - "
+                   "к сигналам относиться осторожно.")
+    elif share < 0.70:
+        verdict = "Смешанный рынок. Отбор имеет смысл."
+    else:
+        verdict = "Растущий рынок. Импульс работает лучше всего."
+
+    return {
+        "with_positive_momentum": up,
+        "total": len(ranked),
+        "share_up_pct": round(share * 100, 1),
+        "share_near_52w_high_pct": round(near_high * 100, 1),
+        "verdict": verdict,
+        "tradeable": share >= 0.15,
+    }
+
+
 def log_prediction(items, today, imoex):
     """Записывает прогноз, чтобы через месяц было что проверять."""
-    top = [i["secid"] for i in items[:TOP_N]]
-    bottom = [i["secid"] for i in items[-TOP_N:]]
+    ranked = [i for i in items if i.get("rank")]
+    top = [i["secid"] for i in ranked[:TOP_N]]
+    bottom = [i["secid"] for i in ranked[-TOP_N:]]
     prices = {i["secid"]: i["price"] for i in items}
 
     new = not os.path.exists("predictions.csv")
@@ -298,11 +352,19 @@ def evaluate(today, current_prices, imoex_now):
 
 # ------------------------------------------------------------ вывод
 
-def to_markdown(items, today, check, imoex):
+def to_markdown(items, today, check, imoex, regime=None):
     out = [f"# Акции индекса Мосбиржи на {today}", ""]
     if imoex:
         out.append(f"IMOEX: **{imoex}**")
     out.append("")
+
+    if regime:
+        out.append("## Состояние рынка\n")
+        out.append(f"**{regime['verdict']}**\n")
+        out.append(f"Растущих бумаг (импульс за год выше нуля): "
+                   f"{regime['with_positive_momentum']} из {regime['total']} "
+                   f"({regime['share_up_pct']}%). "
+                   f"У годовых максимумов: {regime['share_near_52w_high_pct']}%.\n")
 
     if check:
         out.append("## Проверка прошлого прогноза\n")
@@ -317,6 +379,9 @@ def to_markdown(items, today, check, imoex):
             out.append(f"\n**Разница топ минус дно: {check['spread']} п.п. "
                        f"— {check['verdict']}**\n")
 
+    excluded = [i for i in items if i.get("excluded")]
+    items = [i for i in items if i.get("rank")]
+
     out.append("\n## Рейтинг\n")
     out.append("| # | Бумага | Цена | Импульс 12-1 | Мес. изм. | "
                "Годовой диапазон | Волат. | Оборот |")
@@ -326,6 +391,12 @@ def to_markdown(items, today, check, imoex):
                    f"{i['momentum_12_1']:+.1f}% | {i['reversal_1m']:+.1f}% | "
                    f"{i['pos_52w']:.0f}% | {i['volatility']:.0f}% | "
                    f"{i['turnover_rub'] / 1e6:.0f} млн |")
+
+    if excluded:
+        out.append("\n## Исключены из рейтинга\n")
+        for i in excluded:
+            out.append(f"- **{i['name']}** — {i['excluded']}")
+        out.append("")
 
     out.append("\n*Импульс 12-1 — доходность за год без последнего месяца. "
                "Годовой диапазон: 100% = на максимуме за год. "
@@ -374,6 +445,9 @@ def main():
         sys.exit(1)
 
     items = rank_all(items)
+    regime = market_regime(items)
+    if regime:
+        print(f"  {regime['verdict']}")
     prices = {i["secid"]: i["price"] for i in items}
     check = evaluate(today, prices, imoex)
     top, bottom = log_prediction(items, today, imoex)
@@ -384,6 +458,7 @@ def main():
         "imoex": imoex,
         "horizon_days": HORIZON_DAYS,
         "evaluation": check,
+        "market_regime": regime,
         "top": top,
         "bottom": bottom,
         "stocks": items,
@@ -391,7 +466,7 @@ def main():
     json.dump(payload, open("stocks.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
     open("stocks.md", "w", encoding="utf-8").write(
-        to_markdown(items, today, check, imoex))
+        to_markdown(items, today, check, imoex, regime))
 
     print(f"Готово: {len(items)} бумаг")
     print(f"  топ: {', '.join(top)}")
