@@ -1,15 +1,23 @@
 {
-  "generated_utc": "2026-08-19T09:08:54Z",
+  "generated_utc": "2026-08-19T09:14:20Z",
   "trade_date": "2026-08-19",
-  "imoex": 2153.66,
+  "imoex": 2147.39,
   "horizon_days": 30,
   "evaluation": null,
+  "market_regime": {
+    "with_positive_momentum": 0,
+    "total": 18,
+    "share_up_pct": 0.0,
+    "share_near_52w_high_pct": 0.0,
+    "verdict": "Падающий рынок. Растущих бумаг почти нет, рейтинг показывает лишь кто упал меньше. Покупать по импульсу нечего.",
+    "tradeable": false
+  },
   "top": [
+    "LENT",
     "MOEX",
     "FLOT",
     "MDMG",
-    "HEAD",
-    "GMKN"
+    "HEAD"
   ],
   "bottom": [
     "AFKS",
@@ -20,14 +28,37 @@
   ],
   "stocks": [
     {
+      "secid": "LENT",
+      "name": "Лента ао",
+      "price": 1966.5,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -0.28,
+      "reversal_1m": 10.42,
+      "pos_52w": 55.9,
+      "volatility": 39.2,
+      "turnover_rub": 19507251.0,
+      "ranks": {
+        "импульс": 1,
+        "разворот": 12,
+        "у максимума": 2,
+        "спокойствие": 4
+      },
+      "score": 19,
+      "score_norm": 77.9,
+      "rank": 1
+    },
+    {
       "secid": "MOEX",
       "name": "МосБиржа",
       "price": 154.4,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -21.43,
       "reversal_1m": 6.05,
       "pos_52w": 38.1,
       "volatility": 38.9,
-      "turnover_rub": 222086150.0,
+      "turnover_rub": 234224853.0,
       "ranks": {
         "импульс": 5,
         "разворот": 6,
@@ -35,312 +66,357 @@
         "спокойствие": 3
       },
       "score": 19,
-      "score_norm": 76.6,
-      "rank": 1
+      "score_norm": 77.9,
+      "rank": 2
     },
     {
       "secid": "FLOT",
       "name": "Совкомфлот",
       "price": 75.21,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -22.31,
       "reversal_1m": 7.64,
       "pos_52w": 41.0,
       "volatility": 42.0,
-      "turnover_rub": 50830689.0,
+      "turnover_rub": 57341215.0,
       "ranks": {
         "импульс": 6,
         "разворот": 7,
         "у максимума": 4,
-        "спокойствие": 5
+        "спокойствие": 6
       },
-      "score": 22,
-      "score_norm": 71.9,
-      "rank": 2
+      "score": 23,
+      "score_norm": 72.1,
+      "rank": 3
     },
     {
       "secid": "MDMG",
       "name": "MDMG-ао",
       "price": 1329.7,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -10.46,
       "reversal_1m": 17.72,
       "pos_52w": 54.5,
       "volatility": 34.2,
-      "turnover_rub": 21624223.0,
+      "turnover_rub": 23364469.0,
       "ranks": {
         "импульс": 2,
-        "разворот": 15,
+        "разворот": 17,
         "у максимума": 3,
         "спокойствие": 2
       },
-      "score": 22,
-      "score_norm": 71.9,
-      "rank": 3
+      "score": 24,
+      "score_norm": 70.6,
+      "rank": 4
     },
     {
       "secid": "HEAD",
       "name": "Хэдхантер",
       "price": 2762.0,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -31.83,
       "reversal_1m": 12.55,
       "pos_52w": 32.6,
       "volatility": 31.9,
-      "turnover_rub": 109621071.0,
+      "turnover_rub": 143528955.0,
       "ranks": {
         "импульс": 9,
-        "разворот": 11,
+        "разворот": 13,
         "у максимума": 6,
         "спокойствие": 1
       },
-      "score": 27,
-      "score_norm": 64.1,
-      "rank": 4
+      "score": 29,
+      "score_norm": 63.2,
+      "rank": 5
     },
     {
       "secid": "GMKN",
       "name": "ГМКНорНик",
       "price": 117.08,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -14.64,
       "reversal_1m": 9.09,
       "pos_52w": 27.8,
       "volatility": 47.8,
-      "turnover_rub": 759086204.0,
+      "turnover_rub": 849946144.0,
       "ranks": {
         "импульс": 3,
-        "разворот": 10,
+        "разворот": 11,
         "у максимума": 7,
-        "спокойствие": 9
+        "спокойствие": 10
       },
-      "score": 29,
-      "score_norm": 60.9,
-      "rank": 5
+      "score": 31,
+      "score_norm": 60.3,
+      "rank": 6
     },
     {
       "secid": "CNRU",
       "name": "iЦиан",
       "price": 641.2,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -18.22,
       "reversal_1m": 18.48,
       "pos_52w": 59.1,
       "volatility": 45.2,
-      "turnover_rub": 172534462.0,
+      "turnover_rub": 174040429.0,
       "ranks": {
         "импульс": 4,
-        "разворот": 16,
-        "у максимума": 2,
-        "спокойствие": 8
+        "разворот": 18,
+        "у максимума": 1,
+        "спокойствие": 9
       },
-      "score": 30,
-      "score_norm": 59.4,
-      "rank": 6
+      "score": 32,
+      "score_norm": 58.8,
+      "rank": 7
     },
     {
       "secid": "IRAO",
       "name": "ИнтерРАОао",
       "price": 2.4285,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -30.28,
       "reversal_1m": 8.17,
       "pos_52w": 22.9,
       "volatility": 44.1,
-      "turnover_rub": 86071621.0,
+      "turnover_rub": 119355124.0,
       "ranks": {
         "импульс": 7,
         "разворот": 8,
         "у максимума": 10,
-        "спокойствие": 6
+        "спокойствие": 7
       },
-      "score": 31,
-      "score_norm": 57.8,
-      "rank": 7
+      "score": 32,
+      "score_norm": 58.8,
+      "rank": 8
     },
     {
       "secid": "GAZP",
       "name": "ГАЗПРОМ ао",
       "price": 85.24,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -36.89,
       "reversal_1m": -0.19,
       "pos_52w": 11.6,
       "volatility": 41.1,
-      "turnover_rub": 1266979884.0,
+      "turnover_rub": 1367574929.0,
       "ranks": {
         "импульс": 11,
         "разворот": 3,
-        "у максимума": 14,
-        "спокойствие": 4
+        "у максимума": 15,
+        "спокойствие": 5
       },
-      "score": 32,
-      "score_norm": 56.2,
-      "rank": 8
+      "score": 34,
+      "score_norm": 55.9,
+      "rank": 9
     },
     {
       "secid": "LKOH",
       "name": "ЛУКОЙЛ",
       "price": 4288.0,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -31.61,
       "reversal_1m": -0.66,
       "pos_52w": 11.0,
       "volatility": 45.1,
-      "turnover_rub": 857694870.0,
+      "turnover_rub": 922305316.0,
       "ranks": {
         "импульс": 8,
         "разворот": 2,
-        "у максимума": 16,
-        "спокойствие": 7
-      },
-      "score": 33,
-      "score_norm": 54.7,
-      "rank": 9
-    },
-    {
-      "secid": "CBOM",
-      "name": "МКБ ао",
-      "price": 14.296,
-      "momentum_12_1": 0.69,
-      "reversal_1m": 70.74,
-      "pos_52w": 100.0,
-      "volatility": 64.8,
-      "turnover_rub": 603432035.0,
-      "ranks": {
-        "импульс": 1,
-        "разворот": 17,
-        "у максимума": 1,
-        "спокойствие": 16
+        "у максимума": 17,
+        "спокойствие": 8
       },
       "score": 35,
-      "score_norm": 51.6,
+      "score_norm": 54.4,
       "rank": 10
     },
     {
       "secid": "BSPB",
       "name": "БСП ао",
       "price": 247.77,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -36.27,
       "reversal_1m": 0.32,
       "pos_52w": 17.4,
       "volatility": 54.8,
-      "turnover_rub": 23511822.0,
+      "turnover_rub": 24651464.0,
       "ranks": {
         "импульс": 10,
         "разворот": 4,
         "у максимума": 12,
+        "спокойствие": 14
+      },
+      "score": 40,
+      "score_norm": 47.1,
+      "rank": 11
+    },
+    {
+      "secid": "MSNG",
+      "name": "+МосЭнерго",
+      "price": 1.516,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -37.56,
+      "reversal_1m": 8.63,
+      "pos_52w": 15.3,
+      "volatility": 51.6,
+      "turnover_rub": 11650786.0,
+      "ranks": {
+        "импульс": 12,
+        "разворот": 9,
+        "у максимума": 13,
         "спокойствие": 12
       },
-      "score": 38,
-      "score_norm": 46.9,
-      "rank": 11
+      "score": 46,
+      "score_norm": 38.2,
+      "rank": 12
     },
     {
       "secid": "CHMF",
       "name": "СевСт-ао",
       "price": 632.0,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -49.45,
       "reversal_1m": 13.14,
       "pos_52w": 20.5,
       "volatility": 49.8,
-      "turnover_rub": 283486065.0,
+      "turnover_rub": 311163107.0,
       "ranks": {
-        "импульс": 13,
-        "разворот": 12,
+        "импульс": 14,
+        "разворот": 14,
         "у максимума": 11,
-        "спокойствие": 10
+        "спокойствие": 11
       },
-      "score": 46,
-      "score_norm": 34.4,
-      "rank": 12
+      "score": 50,
+      "score_norm": 32.4,
+      "rank": 13
     },
     {
       "secid": "AFKS",
       "name": "Система ао",
       "price": 8.32,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -49.91,
       "reversal_1m": -2.09,
       "pos_52w": 8.2,
       "volatility": 62.3,
-      "turnover_rub": 367046376.0,
+      "turnover_rub": 393175515.0,
       "ranks": {
-        "импульс": 15,
+        "импульс": 16,
         "разворот": 1,
-        "у максимума": 17,
-        "спокойствие": 14
+        "у максимума": 18,
+        "спокойствие": 16
       },
-      "score": 47,
-      "score_norm": 32.8,
-      "rank": 13
+      "score": 51,
+      "score_norm": 30.9,
+      "rank": 14
     },
     {
       "secid": "AFLT",
       "name": "Аэрофлот",
       "price": 33.79,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -52.85,
       "reversal_1m": 8.82,
       "pos_52w": 14.0,
       "volatility": 52.5,
-      "turnover_rub": 114863812.0,
+      "turnover_rub": 146894513.0,
       "ranks": {
-        "импульс": 16,
-        "разворот": 9,
-        "у максимума": 13,
-        "спокойствие": 11
+        "импульс": 17,
+        "разворот": 10,
+        "у максимума": 14,
+        "спокойствие": 13
       },
-      "score": 49,
-      "score_norm": 29.7,
-      "rank": 14
+      "score": 54,
+      "score_norm": 26.5,
+      "rank": 15
     },
     {
       "secid": "ENPG",
       "name": "ЭН+ГРУП ао",
       "price": 301.6,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -45.28,
       "reversal_1m": 14.26,
       "pos_52w": 23.0,
       "volatility": 63.4,
-      "turnover_rub": 53898821.0,
+      "turnover_rub": 57832470.0,
       "ranks": {
-        "импульс": 12,
-        "разворот": 13,
+        "импульс": 13,
+        "разворот": 15,
         "у максимума": 9,
-        "спокойствие": 15
+        "спокойствие": 17
       },
-      "score": 49,
-      "score_norm": 29.7,
-      "rank": 15
+      "score": 54,
+      "score_norm": 26.5,
+      "rank": 16
     },
     {
       "secid": "MAGN",
       "name": "ММК",
       "price": 20.41,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -49.79,
       "reversal_1m": 17.13,
       "pos_52w": 25.7,
       "volatility": 57.0,
-      "turnover_rub": 623107407.0,
+      "turnover_rub": 659089403.0,
       "ranks": {
-        "импульс": 14,
-        "разворот": 14,
+        "импульс": 15,
+        "разворот": 16,
         "у максимума": 8,
-        "спокойствие": 13
+        "спокойствие": 15
       },
-      "score": 49,
-      "score_norm": 29.7,
-      "rank": 16
+      "score": 54,
+      "score_norm": 26.5,
+      "rank": 17
     },
     {
       "secid": "ALRS",
       "name": "АЛРОСА ао",
       "price": 19.81,
+      "jump_pct": null,
+      "excluded": null,
       "momentum_12_1": -60.35,
       "reversal_1m": 2.96,
       "pos_52w": 11.4,
       "volatility": 73.2,
-      "turnover_rub": 968263955.0,
+      "turnover_rub": 1010905948.0,
       "ranks": {
-        "импульс": 17,
+        "импульс": 18,
         "разворот": 5,
-        "у максимума": 15,
-        "спокойствие": 17
+        "у максимума": 16,
+        "спокойствие": 18
       },
-      "score": 54,
-      "score_norm": 21.9,
-      "rank": 17
+      "score": 57,
+      "score_norm": 22.1,
+      "rank": 18
+    },
+    {
+      "secid": "CBOM",
+      "name": "МКБ ао",
+      "price": 14.296,
+      "jump_pct": 53.9,
+      "excluded": "скачок цены +54% за день - вероятно корпоративное действие, а не рынок",
+      "momentum_12_1": 0.69,
+      "reversal_1m": 70.74,
+      "pos_52w": 100.0,
+      "volatility": 64.8,
+      "turnover_rub": 618185741.0,
+      "rank": null
     }
   ]
 }
