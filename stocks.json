@@ -1,14 +1,14 @@
 {
-  "generated_utc": "2026-08-21T07:15:21Z",
+  "generated_utc": "2026-08-21T16:43:12Z",
   "trade_date": "2026-08-21",
-  "imoex": 2127.67,
+  "imoex": 2134.97,
   "horizon_days": 30,
   "evaluation": null,
   "market_regime": {
-    "with_positive_momentum": 2,
-    "total": 57,
-    "share_up_pct": 3.5,
-    "share_near_52w_high_pct": 1.8,
+    "with_positive_momentum": 4,
+    "total": 87,
+    "share_up_pct": 4.6,
+    "share_near_52w_high_pct": 4.6,
     "verdict": "Падающий рынок. Растущих бумаг почти нет, рейтинг показывает лишь кто упал меньше. Покупать по импульсу нечего.",
     "tradeable": false
   },
@@ -22,6 +22,18 @@
       "reason": "истории всего 44 дней"
     },
     {
+      "secid": "AKGP",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AKMB",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AKME",
+      "reason": "истории всего 44 дней"
+    },
+    {
       "secid": "AKMM",
       "reason": "истории всего 44 дней"
     },
@@ -30,7 +42,35 @@
       "reason": "истории всего 44 дней"
     },
     {
+      "secid": "AKPP",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AMFL",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AMGL",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AMNR",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "AMNY",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "BCSD",
+      "reason": "истории всего 44 дней"
+    },
+    {
       "secid": "CASH",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "CNYM",
       "reason": "истории всего 44 дней"
     },
     {
@@ -38,31 +78,163 @@
       "reason": "истории всего 189 дней"
     },
     {
+      "secid": "EQMX",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "FLOW",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "FMMM",
+      "reason": "истории всего 44 дней"
+    },
+    {
       "secid": "GLRX",
       "reason": "истории всего 203 дней"
     },
     {
+      "secid": "GOLD",
+      "reason": "истории всего 44 дней"
+    },
+    {
       "secid": "LQDT",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "OBLG",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "PSMM",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU0006922010",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A0JP773",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A0JP799",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A0ZZCD8",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A105328",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A109R27",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "RU000A10FQ17",
+      "reason": "истории всего 3 дней"
+    },
+    {
+      "secid": "SAFE",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBBY",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBCB",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBCN",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBFR",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBGD",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBLB",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBMM",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBMX",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SBRB",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "SILA",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "STME",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "TGLD",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "TLCB",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "TPAY",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "XACCSK",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "XFMAIN",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "XKLUCH",
+      "reason": "истории всего 44 дней"
+    },
+    {
+      "secid": "XSECUR",
+      "reason": "истории всего 11 дней"
+    },
+    {
+      "secid": "XXXXXX",
       "reason": "истории всего 44 дней"
     }
   ],
   "universe": {
     "index_members": 46,
     "board": 506,
-    "targets": 71,
-    "ranked": 63
+    "targets": 147,
+    "ranked": 96
   },
   "top": [
     "PIKK",
-    "LENT",
-    "MDMG",
+    "LSNGP",
+    "PRMD",
     "YDEX",
-    "FESH"
+    "LENT"
   ],
   "bottom": [
-    "VKCO",
-    "ASTR",
-    "UNAC",
+    "ETLN",
+    "ROLO",
+    "IVAT",
     "WUSH",
     "SMLT"
   ],
@@ -77,60 +249,60 @@
       "reversal_1m": 0.73,
       "pos_52w": 74.1,
       "volatility": 39.7,
-      "turnover_rub": 16338912.0,
+      "turnover_rub": 121172337.0,
       "in_index": false,
       "ranks": {
-        "импульс": 6,
-        "разворот": 18,
-        "у максимума": 1,
-        "спокойствие": 10
+        "импульс": 9,
+        "разворот": 26,
+        "у максимума": 3,
+        "спокойствие": 14
       },
-      "score": 35,
-      "score_norm": 86.2,
+      "score": 52,
+      "score_norm": 86.0,
       "rank": 1
     },
     {
-      "secid": "LENT",
-      "name": "Лента ао",
-      "price": 1909.5,
+      "secid": "LSNGP",
+      "name": "РСетиЛЭ-п",
+      "price": 341.15,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": 1.85,
-      "reversal_1m": 6.83,
-      "pos_52w": 47.2,
-      "volatility": 39.2,
-      "turnover_rub": 47140351.0,
-      "in_index": true,
+      "momentum_12_1": 20.81,
+      "reversal_1m": 3.84,
+      "pos_52w": 73.8,
+      "volatility": 39.1,
+      "turnover_rub": 21480443.0,
+      "in_index": false,
       "ranks": {
         "импульс": 2,
-        "разворот": 36,
-        "у максимума": 6,
-        "спокойствие": 9
+        "разворот": 40,
+        "у максимума": 4,
+        "спокойствие": 11
       },
-      "score": 53,
-      "score_norm": 78.1,
+      "score": 57,
+      "score_norm": 84.6,
       "rank": 2
     },
     {
-      "secid": "MDMG",
-      "name": "MDMG-ао",
-      "price": 1306.8,
+      "secid": "PRMD",
+      "name": "iПРОМОМЕД",
+      "price": 381.0,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -7.96,
-      "reversal_1m": 11.85,
-      "pos_52w": 49.8,
-      "volatility": 34.2,
-      "turnover_rub": 10311711.0,
-      "in_index": true,
+      "momentum_12_1": -17.22,
+      "reversal_1m": 6.04,
+      "pos_52w": 48.8,
+      "volatility": 37.2,
+      "turnover_rub": 41450961.0,
+      "in_index": false,
       "ranks": {
-        "импульс": 4,
-        "разворот": 46,
-        "у максимума": 4,
-        "спокойствие": 5
+        "импульс": 15,
+        "разворот": 50,
+        "у максимума": 9,
+        "спокойствие": 8
       },
-      "score": 59,
-      "score_norm": 75.4,
+      "score": 82,
+      "score_norm": 77.3,
       "rank": 3
     },
     {
@@ -143,17 +315,61 @@
       "reversal_1m": -2.46,
       "pos_52w": 23.0,
       "volatility": 40.9,
-      "turnover_rub": 161810163.0,
+      "turnover_rub": 2206111245.0,
       "in_index": true,
       "ranks": {
-        "импульс": 9,
-        "разворот": 13,
-        "у максимума": 24,
-        "спокойствие": 13
+        "импульс": 12,
+        "разворот": 16,
+        "у максимума": 37,
+        "спокойствие": 18
       },
-      "score": 59,
-      "score_norm": 75.4,
+      "score": 83,
+      "score_norm": 77.0,
       "rank": 4
+    },
+    {
+      "secid": "LENT",
+      "name": "Лента ао",
+      "price": 1909.5,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": 1.85,
+      "reversal_1m": 6.83,
+      "pos_52w": 47.2,
+      "volatility": 39.2,
+      "turnover_rub": 153134143.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 4,
+        "разворот": 57,
+        "у максимума": 11,
+        "спокойствие": 12
+      },
+      "score": 84,
+      "score_norm": 76.7,
+      "rank": 5
+    },
+    {
+      "secid": "MDMG",
+      "name": "MDMG-ао",
+      "price": 1306.8,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -7.96,
+      "reversal_1m": 11.85,
+      "pos_52w": 49.8,
+      "volatility": 34.2,
+      "turnover_rub": 68362405.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 7,
+        "разворот": 67,
+        "у максимума": 8,
+        "спокойствие": 5
+      },
+      "score": 87,
+      "score_norm": 75.9,
+      "rank": 6
     },
     {
       "secid": "FESH",
@@ -165,17 +381,17 @@
       "reversal_1m": -2.6,
       "pos_52w": 43.1,
       "volatility": 58.3,
-      "turnover_rub": 31817297.0,
+      "turnover_rub": 121855259.0,
       "in_index": false,
       "ranks": {
-        "импульс": 3,
-        "разворот": 12,
-        "у максимума": 7,
-        "спокойствие": 39
+        "импульс": 5,
+        "разворот": 15,
+        "у максимума": 12,
+        "спокойствие": 60
       },
-      "score": 61,
-      "score_norm": 74.6,
-      "rank": 5
+      "score": 92,
+      "score_norm": 74.4,
+      "rank": 7
     },
     {
       "secid": "MOEX",
@@ -187,17 +403,17 @@
       "reversal_1m": 4.61,
       "pos_52w": 35.1,
       "volatility": 39.0,
-      "turnover_rub": 44890816.0,
+      "turnover_rub": 428879443.0,
       "in_index": true,
       "ranks": {
-        "импульс": 13,
-        "разворот": 30,
-        "у максимума": 13,
-        "спокойствие": 8
+        "импульс": 21,
+        "разворот": 43,
+        "у максимума": 20,
+        "спокойствие": 10
       },
-      "score": 64,
-      "score_norm": 73.2,
-      "rank": 6
+      "score": 94,
+      "score_norm": 73.8,
+      "rank": 8
     },
     {
       "secid": "UGLD",
@@ -209,39 +425,39 @@
       "reversal_1m": 16.67,
       "pos_52w": 59.2,
       "volatility": 39.7,
-      "turnover_rub": 16902983.0,
+      "turnover_rub": 357940202.0,
       "in_index": true,
       "ranks": {
-        "импульс": 1,
-        "разворот": 53,
-        "у максимума": 2,
-        "спокойствие": 11
+        "импульс": 3,
+        "разворот": 77,
+        "у максимума": 6,
+        "спокойствие": 15
       },
-      "score": 67,
-      "score_norm": 71.9,
-      "rank": 7
+      "score": 101,
+      "score_norm": 71.8,
+      "rank": 9
     },
     {
-      "secid": "SBER",
-      "name": "Сбербанк",
-      "price": 271.11,
+      "secid": "MGKL",
+      "name": "МГКЛ",
+      "price": 2.198,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -15.49,
-      "reversal_1m": 2.8,
-      "pos_52w": 15.2,
-      "volatility": 25.4,
-      "turnover_rub": 461126578.0,
-      "in_index": true,
+      "momentum_12_1": -18.19,
+      "reversal_1m": -4.99,
+      "pos_52w": 19.9,
+      "volatility": 44.4,
+      "turnover_rub": 11890594.0,
+      "in_index": false,
       "ranks": {
-        "импульс": 10,
-        "разворот": 25,
-        "у максимума": 35,
-        "спокойствие": 1
+        "импульс": 18,
+        "разворот": 11,
+        "у максимума": 47,
+        "спокойствие": 26
       },
-      "score": 71,
-      "score_norm": 70.1,
-      "rank": 8
+      "score": 102,
+      "score_norm": 71.5,
+      "rank": 10
     },
     {
       "secid": "FLOT",
@@ -253,39 +469,83 @@
       "reversal_1m": 3.3,
       "pos_52w": 33.9,
       "volatility": 42.1,
-      "turnover_rub": 22788658.0,
+      "turnover_rub": 251696399.0,
       "in_index": true,
       "ranks": {
-        "импульс": 14,
-        "разворот": 27,
-        "у максимума": 14,
-        "спокойствие": 17
+        "импульс": 22,
+        "разворот": 38,
+        "у максимума": 21,
+        "спокойствие": 22
       },
-      "score": 72,
-      "score_norm": 69.6,
-      "rank": 9
+      "score": 103,
+      "score_norm": 71.2,
+      "rank": 11
     },
     {
-      "secid": "SBERP",
-      "name": "Сбербанк-п",
-      "price": 271.07,
+      "secid": "OZPH",
+      "name": "iОзонФарм",
+      "price": 42.19,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -14.43,
-      "reversal_1m": 2.03,
-      "pos_52w": 12.2,
-      "volatility": 25.7,
-      "turnover_rub": 41189723.0,
+      "momentum_12_1": -22.86,
+      "reversal_1m": -2.22,
+      "pos_52w": 28.0,
+      "volatility": 46.0,
+      "turnover_rub": 36465768.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 25,
+        "разворот": 18,
+        "у максимума": 27,
+        "спокойствие": 33
+      },
+      "score": 103,
+      "score_norm": 71.2,
+      "rank": 12
+    },
+    {
+      "secid": "NMTP",
+      "name": "НМТП ао",
+      "price": 6.85,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -18.7,
+      "reversal_1m": -3.93,
+      "pos_52w": 18.3,
+      "volatility": 42.8,
+      "turnover_rub": 24334955.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 19,
+        "разворот": 12,
+        "у максимума": 52,
+        "спокойствие": 24
+      },
+      "score": 107,
+      "score_norm": 70.1,
+      "rank": 13
+    },
+    {
+      "secid": "SBER",
+      "name": "Сбербанк",
+      "price": 271.11,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -15.49,
+      "reversal_1m": 2.8,
+      "pos_52w": 15.2,
+      "volatility": 25.4,
+      "turnover_rub": 5000797949.0,
       "in_index": true,
       "ranks": {
-        "импульс": 8,
-        "разворот": 22,
-        "у максимума": 42,
-        "спокойствие": 2
+        "импульс": 13,
+        "разворот": 36,
+        "у максимума": 57,
+        "спокойствие": 1
       },
-      "score": 74,
-      "score_norm": 68.8,
-      "rank": 10
+      "score": 107,
+      "score_norm": 70.1,
+      "rank": 14
     },
     {
       "secid": "SNGSP",
@@ -297,39 +557,83 @@
       "reversal_1m": 9.85,
       "pos_52w": 33.3,
       "volatility": 33.3,
-      "turnover_rub": 82894549.0,
+      "turnover_rub": 937816080.0,
       "in_index": true,
       "ranks": {
-        "импульс": 12,
-        "разворот": 44,
-        "у максимума": 15,
+        "импульс": 17,
+        "разворот": 65,
+        "у максимума": 22,
         "спокойствие": 4
       },
-      "score": 75,
-      "score_norm": 68.3,
-      "rank": 11
+      "score": 108,
+      "score_norm": 69.8,
+      "rank": 15
     },
     {
-      "secid": "HEAD",
-      "name": "Хэдхантер",
-      "price": 2719.0,
+      "secid": "MRKV",
+      "name": "РсетВол ао",
+      "price": 0.2007,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -28.42,
-      "reversal_1m": 6.67,
-      "pos_52w": 29.3,
-      "volatility": 31.6,
-      "turnover_rub": 19536277.0,
+      "momentum_12_1": 45.82,
+      "reversal_1m": 6.44,
+      "pos_52w": 82.6,
+      "volatility": 56.2,
+      "turnover_rub": 17879986.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 1,
+        "разворот": 52,
+        "у максимума": 1,
+        "спокойствие": 56
+      },
+      "score": 110,
+      "score_norm": 69.2,
+      "rank": 16
+    },
+    {
+      "secid": "SBERP",
+      "name": "Сбербанк-п",
+      "price": 271.07,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -14.43,
+      "reversal_1m": 2.03,
+      "pos_52w": 12.2,
+      "volatility": 25.7,
+      "turnover_rub": 421346622.0,
       "in_index": true,
       "ranks": {
-        "импульс": 26,
-        "разворот": 35,
-        "у максимума": 19,
-        "спокойствие": 3
+        "импульс": 11,
+        "разворот": 31,
+        "у максимума": 69,
+        "спокойствие": 2
       },
-      "score": 83,
-      "score_norm": 64.7,
-      "rank": 12
+      "score": 113,
+      "score_norm": 68.3,
+      "rank": 17
+    },
+    {
+      "secid": "MRKP",
+      "name": "РСетиЦП ао",
+      "price": 0.5016,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -3.97,
+      "reversal_1m": 2.58,
+      "pos_52w": 35.9,
+      "volatility": 57.7,
+      "turnover_rub": 10475842.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 6,
+        "разворот": 33,
+        "у максимума": 17,
+        "спокойствие": 59
+      },
+      "score": 115,
+      "score_norm": 67.7,
+      "rank": 18
     },
     {
       "secid": "MTSS",
@@ -341,39 +645,39 @@
       "reversal_1m": 3.43,
       "pos_52w": 29.5,
       "volatility": 45.3,
-      "turnover_rub": 38332372.0,
+      "turnover_rub": 378298438.0,
       "in_index": true,
       "ranks": {
-        "импульс": 16,
-        "разворот": 28,
-        "у максимума": 18,
-        "спокойствие": 22
+        "импульс": 24,
+        "разворот": 39,
+        "у максимума": 25,
+        "спокойствие": 30
       },
-      "score": 84,
-      "score_norm": 64.3,
-      "rank": 13
+      "score": 118,
+      "score_norm": 66.9,
+      "rank": 19
     },
     {
-      "secid": "GMKN",
-      "name": "ГМКНорНик",
-      "price": 119.84,
+      "secid": "HEAD",
+      "name": "Хэдхантер",
+      "price": 2719.0,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -8.96,
-      "reversal_1m": 7.08,
-      "pos_52w": 31.5,
-      "volatility": 48.8,
-      "turnover_rub": 227712808.0,
+      "momentum_12_1": -28.42,
+      "reversal_1m": 6.67,
+      "pos_52w": 29.3,
+      "volatility": 31.6,
+      "turnover_rub": 377664549.0,
       "in_index": true,
       "ranks": {
-        "импульс": 5,
-        "разворот": 38,
-        "у максимума": 17,
-        "спокойствие": 26
+        "импульс": 35,
+        "разворот": 56,
+        "у максимума": 26,
+        "спокойствие": 3
       },
-      "score": 86,
-      "score_norm": 63.4,
-      "rank": 14
+      "score": 120,
+      "score_norm": 66.3,
+      "rank": 20
     },
     {
       "secid": "PHOR",
@@ -385,17 +689,17 @@
       "reversal_1m": 3.23,
       "pos_52w": 25.2,
       "volatility": 42.6,
-      "turnover_rub": 31742379.0,
+      "turnover_rub": 273505341.0,
       "in_index": true,
       "ranks": {
-        "импульс": 21,
-        "разворот": 26,
-        "у максимума": 22,
-        "спокойствие": 18
+        "импульс": 30,
+        "разворот": 37,
+        "у максимума": 33,
+        "спокойствие": 23
       },
-      "score": 87,
-      "score_norm": 62.9,
-      "rank": 15
+      "score": 123,
+      "score_norm": 65.4,
+      "rank": 21
     },
     {
       "secid": "IRAO",
@@ -407,17 +711,17 @@
       "reversal_1m": 1.18,
       "pos_52w": 21.2,
       "volatility": 44.9,
-      "turnover_rub": 18872897.0,
+      "turnover_rub": 220239552.0,
       "in_index": true,
       "ranks": {
-        "импульс": 20,
-        "разворот": 21,
-        "у максимума": 28,
-        "спокойствие": 19
+        "импульс": 29,
+        "разворот": 30,
+        "у максимума": 42,
+        "спокойствие": 27
       },
-      "score": 88,
-      "score_norm": 62.5,
-      "rank": 16
+      "score": 128,
+      "score_norm": 64.0,
+      "rank": 22
     },
     {
       "secid": "TRNFP",
@@ -429,17 +733,61 @@
       "reversal_1m": -3.15,
       "pos_52w": 1.7,
       "volatility": 36.8,
-      "turnover_rub": 54881706.0,
+      "turnover_rub": 418807215.0,
       "in_index": true,
       "ranks": {
-        "импульс": 15,
-        "разворот": 11,
-        "у максимума": 55,
+        "импульс": 23,
+        "разворот": 13,
+        "у максимума": 85,
         "спокойствие": 7
       },
-      "score": 88,
-      "score_norm": 62.5,
-      "rank": 17
+      "score": 128,
+      "score_norm": 64.0,
+      "rank": 23
+    },
+    {
+      "secid": "GMKN",
+      "name": "ГМКНорНик",
+      "price": 119.84,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -8.96,
+      "reversal_1m": 7.08,
+      "pos_52w": 31.5,
+      "volatility": 48.8,
+      "turnover_rub": 2177435194.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 8,
+        "разворот": 59,
+        "у максимума": 24,
+        "спокойствие": 38
+      },
+      "score": 129,
+      "score_norm": 63.7,
+      "rank": 24
+    },
+    {
+      "secid": "CNRU",
+      "name": "iЦиан",
+      "price": 644.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -17.28,
+      "reversal_1m": 18.64,
+      "pos_52w": 60.1,
+      "volatility": 45.6,
+      "turnover_rub": 81954762.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 16,
+        "разворот": 80,
+        "у максимума": 5,
+        "спокойствие": 31
+      },
+      "score": 132,
+      "score_norm": 62.8,
+      "rank": 25
     },
     {
       "secid": "SIBN",
@@ -451,17 +799,17 @@
       "reversal_1m": 14.59,
       "pos_52w": 54.2,
       "volatility": 45.1,
-      "turnover_rub": 70013660.0,
+      "turnover_rub": 593537168.0,
       "in_index": false,
       "ranks": {
-        "импульс": 17,
-        "разворот": 49,
-        "у максимума": 3,
-        "спокойствие": 20
+        "импульс": 26,
+        "разворот": 71,
+        "у максимума": 7,
+        "спокойствие": 28
       },
-      "score": 89,
-      "score_norm": 62.1,
-      "rank": 18
+      "score": 132,
+      "score_norm": 62.8,
+      "rank": 26
     },
     {
       "secid": "BANEP",
@@ -473,17 +821,17 @@
       "reversal_1m": -16.64,
       "pos_52w": 0.0,
       "volatility": 50.2,
-      "turnover_rub": 33693089.0,
+      "turnover_rub": 163662095.0,
       "in_index": false,
       "ranks": {
-        "импульс": 7,
+        "импульс": 10,
         "разворот": 1,
-        "у максимума": 57,
-        "спокойствие": 28
+        "у максимума": 87,
+        "спокойствие": 40
       },
-      "score": 93,
-      "score_norm": 60.3,
-      "rank": 19
+      "score": 138,
+      "score_norm": 61.0,
+      "rank": 27
     },
     {
       "secid": "NVTK",
@@ -495,17 +843,17 @@
       "reversal_1m": -6.89,
       "pos_52w": 8.4,
       "volatility": 48.2,
-      "turnover_rub": 215422658.0,
+      "turnover_rub": 1756786943.0,
       "in_index": true,
       "ranks": {
-        "импульс": 11,
+        "импульс": 14,
         "разворот": 9,
-        "у максимума": 49,
-        "спокойствие": 24
+        "у максимума": 79,
+        "спокойствие": 36
       },
-      "score": 93,
-      "score_norm": 60.3,
-      "rank": 20
+      "score": 138,
+      "score_norm": 61.0,
+      "rank": 28
     },
     {
       "secid": "GAZP",
@@ -517,17 +865,17 @@
       "reversal_1m": -8.99,
       "pos_52w": 7.6,
       "volatility": 41.2,
-      "turnover_rub": 611421108.0,
+      "turnover_rub": 3273415653.0,
       "in_index": true,
       "ranks": {
-        "импульс": 27,
+        "импульс": 37,
         "разворот": 4,
-        "у максимума": 50,
-        "спокойствие": 14
+        "у максимума": 80,
+        "спокойствие": 19
       },
-      "score": 95,
-      "score_norm": 59.4,
-      "rank": 21
+      "score": 140,
+      "score_norm": 60.5,
+      "rank": 29
     },
     {
       "secid": "VTBR",
@@ -539,17 +887,61 @@
       "reversal_1m": -8.34,
       "pos_52w": 1.5,
       "volatility": 41.7,
-      "turnover_rub": 194319461.0,
+      "turnover_rub": 1288306458.0,
       "in_index": true,
       "ranks": {
-        "импульс": 19,
+        "импульс": 28,
         "разворот": 5,
-        "у максимума": 56,
-        "спокойствие": 16
+        "у максимума": 86,
+        "спокойствие": 21
       },
-      "score": 96,
-      "score_norm": 58.9,
-      "rank": 22
+      "score": 140,
+      "score_norm": 60.5,
+      "rank": 30
+    },
+    {
+      "secid": "VSEH",
+      "name": "ВИ.ру",
+      "price": 76.33,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -20.47,
+      "reversal_1m": 25.05,
+      "pos_52w": 81.0,
+      "volatility": 47.0,
+      "turnover_rub": 55243829.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 20,
+        "разворот": 86,
+        "у максимума": 2,
+        "спокойствие": 34
+      },
+      "score": 142,
+      "score_norm": 59.9,
+      "rank": 31
+    },
+    {
+      "secid": "RTKMP",
+      "name": "Ростел -ап",
+      "price": 42.25,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -37.63,
+      "reversal_1m": -0.82,
+      "pos_52w": 12.6,
+      "volatility": 38.4,
+      "turnover_rub": 57361337.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 49,
+        "разворот": 23,
+        "у максимума": 68,
+        "спокойствие": 9
+      },
+      "score": 149,
+      "score_norm": 57.8,
+      "rank": 32
     },
     {
       "secid": "LKOH",
@@ -561,39 +953,17 @@
       "reversal_1m": -7.87,
       "pos_52w": 7.1,
       "volatility": 45.2,
-      "turnover_rub": 310787410.0,
+      "turnover_rub": 2941900179.0,
       "in_index": true,
       "ranks": {
-        "импульс": 24,
+        "импульс": 33,
         "разворот": 7,
-        "у максимума": 51,
-        "спокойствие": 21
+        "у максимума": 81,
+        "спокойствие": 29
       },
-      "score": 103,
-      "score_norm": 55.8,
-      "rank": 23
-    },
-    {
-      "secid": "ROSN",
-      "name": "Роснефть",
-      "price": 315.55,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -24.75,
-      "reversal_1m": -8.11,
-      "pos_52w": 10.3,
-      "volatility": 51.7,
-      "turnover_rub": 300568606.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 18,
-        "разворот": 6,
-        "у максимума": 47,
-        "спокойствие": 34
-      },
-      "score": 105,
-      "score_norm": 54.9,
-      "rank": 24
+      "score": 150,
+      "score_norm": 57.6,
+      "rank": 33
     },
     {
       "secid": "TATNP",
@@ -605,17 +975,17 @@
       "reversal_1m": 10.6,
       "pos_52w": 48.1,
       "volatility": 51.3,
-      "turnover_rub": 25248449.0,
+      "turnover_rub": 342461659.0,
       "in_index": true,
       "ranks": {
-        "импульс": 23,
-        "разворот": 45,
-        "у максимума": 5,
-        "спокойствие": 32
+        "импульс": 32,
+        "разворот": 66,
+        "у максимума": 10,
+        "спокойствие": 45
       },
-      "score": 105,
-      "score_norm": 54.9,
-      "rank": 25
+      "score": 153,
+      "score_norm": 56.7,
+      "rank": 34
     },
     {
       "secid": "X5",
@@ -627,17 +997,39 @@
       "reversal_1m": -0.98,
       "pos_52w": 10.4,
       "volatility": 40.7,
-      "turnover_rub": 112042054.0,
+      "turnover_rub": 1157484205.0,
       "in_index": true,
       "ranks": {
-        "импульс": 30,
-        "разворот": 17,
-        "у максимума": 46,
-        "спокойствие": 12
+        "импульс": 42,
+        "разворот": 21,
+        "у максимума": 74,
+        "спокойствие": 16
       },
-      "score": 105,
-      "score_norm": 54.9,
-      "rank": 26
+      "score": 153,
+      "score_norm": 56.7,
+      "rank": 35
+    },
+    {
+      "secid": "ROSN",
+      "name": "Роснефть",
+      "price": 315.55,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -24.75,
+      "reversal_1m": -8.11,
+      "pos_52w": 10.3,
+      "volatility": 51.7,
+      "turnover_rub": 1545148461.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 27,
+        "разворот": 6,
+        "у максимума": 75,
+        "спокойствие": 48
+      },
+      "score": 156,
+      "score_norm": 55.8,
+      "rank": 36
     },
     {
       "secid": "SVCB",
@@ -649,17 +1041,39 @@
       "reversal_1m": 6.49,
       "pos_52w": 19.6,
       "volatility": 36.8,
-      "turnover_rub": 63628996.0,
+      "turnover_rub": 712435628.0,
       "in_index": true,
       "ranks": {
-        "импульс": 37,
-        "разворот": 34,
-        "у максимума": 30,
+        "импульс": 51,
+        "разворот": 54,
+        "у максимума": 48,
         "спокойствие": 6
       },
-      "score": 107,
-      "score_norm": 54.0,
-      "rank": 27
+      "score": 159,
+      "score_norm": 54.9,
+      "rank": 37
+    },
+    {
+      "secid": "MSNG",
+      "name": "+МосЭнерго",
+      "price": 1.4895,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -31.25,
+      "reversal_1m": -3.12,
+      "pos_52w": 13.3,
+      "volatility": 51.6,
+      "turnover_rub": 25463514.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 36,
+        "разворот": 14,
+        "у максимума": 66,
+        "спокойствие": 46
+      },
+      "score": 162,
+      "score_norm": 54.1,
+      "rank": 38
     },
     {
       "secid": "TATN",
@@ -671,17 +1085,39 @@
       "reversal_1m": 7.19,
       "pos_52w": 39.3,
       "volatility": 55.0,
-      "turnover_rub": 90401563.0,
+      "turnover_rub": 1062272032.0,
       "in_index": true,
       "ranks": {
-        "импульс": 25,
-        "разворот": 39,
-        "у максимума": 8,
-        "спокойствие": 37
+        "импульс": 34,
+        "разворот": 60,
+        "у максимума": 14,
+        "спокойствие": 54
       },
-      "score": 109,
-      "score_norm": 53.1,
-      "rank": 28
+      "score": 162,
+      "score_norm": 54.1,
+      "rank": 39
+    },
+    {
+      "secid": "LSRG",
+      "name": "ЛСР ао",
+      "price": 518.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -34.12,
+      "reversal_1m": -0.69,
+      "pos_52w": 14.2,
+      "volatility": 47.5,
+      "turnover_rub": 30229184.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 43,
+        "разворот": 24,
+        "у максимума": 61,
+        "спокойствие": 35
+      },
+      "score": 163,
+      "score_norm": 53.8,
+      "rank": 40
     },
     {
       "secid": "SNGS",
@@ -693,17 +1129,61 @@
       "reversal_1m": 2.63,
       "pos_52w": 21.4,
       "volatility": 51.1,
-      "turnover_rub": 107835683.0,
+      "turnover_rub": 642799792.0,
       "in_index": true,
       "ranks": {
-        "импульс": 33,
-        "разворот": 24,
-        "у максимума": 27,
-        "спокойствие": 31
+        "импульс": 46,
+        "разворот": 34,
+        "у максимума": 41,
+        "спокойствие": 44
       },
-      "score": 115,
-      "score_norm": 50.4,
-      "rank": 29
+      "score": 165,
+      "score_norm": 53.2,
+      "rank": 41
+    },
+    {
+      "secid": "FEES",
+      "name": "Россети",
+      "price": 0.05042,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -32.88,
+      "reversal_1m": 5.35,
+      "pos_52w": 27.1,
+      "volatility": 54.3,
+      "turnover_rub": 83003603.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 39,
+        "разворот": 49,
+        "у максимума": 30,
+        "спокойствие": 51
+      },
+      "score": 169,
+      "score_norm": 52.0,
+      "rank": 42
+    },
+    {
+      "secid": "RENI",
+      "name": "Ренессанс",
+      "price": 72.02,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -45.73,
+      "reversal_1m": -0.96,
+      "pos_52w": 10.0,
+      "volatility": 39.3,
+      "turnover_rub": 155587575.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 58,
+        "разворот": 22,
+        "у максимума": 76,
+        "спокойствие": 13
+      },
+      "score": 169,
+      "score_norm": 52.0,
+      "rank": 43
     },
     {
       "secid": "RTKM",
@@ -715,17 +1195,39 @@
       "reversal_1m": 1.08,
       "pos_52w": 12.1,
       "volatility": 41.4,
-      "turnover_rub": 19951354.0,
+      "turnover_rub": 184264065.0,
       "in_index": true,
       "ranks": {
-        "импульс": 39,
-        "разворот": 20,
-        "у максимума": 43,
-        "спокойствие": 15
+        "импульс": 55,
+        "разворот": 28,
+        "у максимума": 70,
+        "спокойствие": 20
       },
-      "score": 117,
-      "score_norm": 49.6,
-      "rank": 30
+      "score": 173,
+      "score_norm": 50.9,
+      "rank": 44
+    },
+    {
+      "secid": "MBNK",
+      "name": "МТС Банк",
+      "price": 905.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -38.67,
+      "reversal_1m": 4.02,
+      "pos_52w": 16.1,
+      "volatility": 43.3,
+      "turnover_rub": 10000943.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 52,
+        "разворот": 41,
+        "у максимума": 56,
+        "спокойствие": 25
+      },
+      "score": 174,
+      "score_norm": 50.6,
+      "rank": 45
     },
     {
       "secid": "BSPB",
@@ -737,39 +1239,39 @@
       "reversal_1m": -1.68,
       "pos_52w": 13.7,
       "volatility": 55.0,
-      "turnover_rub": 278566314.0,
+      "turnover_rub": 575468550.0,
       "in_index": true,
       "ranks": {
-        "импульс": 29,
-        "разворот": 15,
-        "у максимума": 40,
-        "спокойствие": 36
+        "импульс": 40,
+        "разворот": 19,
+        "у максимума": 65,
+        "спокойствие": 53
       },
-      "score": 120,
-      "score_norm": 48.2,
-      "rank": 31
+      "score": 177,
+      "score_norm": 49.7,
+      "rank": 46
     },
     {
-      "secid": "POSI",
-      "name": "iПозитив",
-      "price": 939.0,
+      "secid": "RASP",
+      "name": "Распадская",
+      "price": 121.3,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -36.32,
-      "reversal_1m": 6.46,
-      "pos_52w": 31.6,
-      "volatility": 62.8,
-      "turnover_rub": 50917611.0,
-      "in_index": true,
+      "momentum_12_1": -44.55,
+      "reversal_1m": 0.41,
+      "pos_52w": 20.0,
+      "volatility": 53.9,
+      "turnover_rub": 83705075.0,
+      "in_index": false,
       "ranks": {
-        "импульс": 34,
-        "разворот": 33,
-        "у максимума": 16,
-        "спокойствие": 42
+        "импульс": 57,
+        "разворот": 25,
+        "у максимума": 46,
+        "спокойствие": 50
       },
-      "score": 125,
-      "score_norm": 46.0,
-      "rank": 32
+      "score": 178,
+      "score_norm": 49.4,
+      "rank": 47
     },
     {
       "secid": "HYDR",
@@ -781,39 +1283,105 @@
       "reversal_1m": 16.32,
       "pos_52w": 38.9,
       "volatility": 51.7,
-      "turnover_rub": 11395171.0,
+      "turnover_rub": 70719805.0,
       "in_index": false,
       "ranks": {
-        "импульс": 32,
-        "разворот": 52,
-        "у максимума": 9,
-        "спокойствие": 33
+        "импульс": 45,
+        "разворот": 76,
+        "у максимума": 15,
+        "спокойствие": 47
       },
-      "score": 126,
-      "score_norm": 45.5,
-      "rank": 33
+      "score": 183,
+      "score_norm": 48.0,
+      "rank": 48
     },
     {
-      "secid": "RNFT",
-      "name": "РуссНфт ао",
-      "price": 80.95,
+      "secid": "POSI",
+      "name": "iПозитив",
+      "price": 939.0,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -34.9,
-      "reversal_1m": 0.81,
-      "pos_52w": 17.6,
-      "volatility": 70.2,
-      "turnover_rub": 21438306.0,
+      "momentum_12_1": -36.32,
+      "reversal_1m": 6.46,
+      "pos_52w": 31.6,
+      "volatility": 62.8,
+      "turnover_rub": 442939344.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 47,
+        "разворот": 53,
+        "у максимума": 23,
+        "спокойствие": 65
+      },
+      "score": 188,
+      "score_norm": 46.5,
+      "rank": 49
+    },
+    {
+      "secid": "ABIO",
+      "name": "iАРТГЕН ао",
+      "price": 44.32,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -43.27,
+      "reversal_1m": 1.14,
+      "pos_52w": 26.1,
+      "volatility": 78.2,
+      "turnover_rub": 10656210.0,
       "in_index": false,
       "ranks": {
-        "импульс": 31,
-        "разворот": 19,
-        "у максимума": 33,
-        "спокойствие": 48
+        "импульс": 56,
+        "разворот": 29,
+        "у максимума": 31,
+        "спокойствие": 79
       },
-      "score": 131,
-      "score_norm": 43.3,
-      "rank": 34
+      "score": 195,
+      "score_norm": 44.5,
+      "rank": 50
+    },
+    {
+      "secid": "TGKA",
+      "name": "ТГК-1",
+      "price": 0.004586,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -34.06,
+      "reversal_1m": 6.5,
+      "pos_52w": 21.1,
+      "volatility": 56.5,
+      "turnover_rub": 10090441.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 41,
+        "разворот": 55,
+        "у максимума": 43,
+        "спокойствие": 57
+      },
+      "score": 196,
+      "score_norm": 44.2,
+      "rank": 51
+    },
+    {
+      "secid": "DATA",
+      "name": "iАренадата",
+      "price": 82.66,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -39.28,
+      "reversal_1m": 17.78,
+      "pos_52w": 41.5,
+      "volatility": 54.5,
+      "turnover_rub": 14203081.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 53,
+        "разворот": 79,
+        "у максимума": 13,
+        "спокойствие": 52
+      },
+      "score": 197,
+      "score_norm": 43.9,
+      "rank": 52
     },
     {
       "secid": "SELG",
@@ -825,17 +1393,39 @@
       "reversal_1m": 15.74,
       "pos_52w": 38.6,
       "volatility": 73.9,
-      "turnover_rub": 35840839.0,
+      "turnover_rub": 353176851.0,
       "in_index": false,
       "ranks": {
-        "импульс": 22,
-        "разворот": 50,
-        "у максимума": 10,
-        "спокойствие": 51
+        "импульс": 31,
+        "разворот": 73,
+        "у максимума": 16,
+        "спокойствие": 77
       },
-      "score": 133,
-      "score_norm": 42.4,
-      "rank": 35
+      "score": 197,
+      "score_norm": 43.9,
+      "rank": 53
+    },
+    {
+      "secid": "RNFT",
+      "name": "РуссНфт ао",
+      "price": 80.95,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -34.9,
+      "reversal_1m": 0.81,
+      "pos_52w": 17.6,
+      "volatility": 70.2,
+      "turnover_rub": 140063098.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 44,
+        "разворот": 27,
+        "у максимума": 53,
+        "спокойствие": 74
+      },
+      "score": 198,
+      "score_norm": 43.6,
+      "rank": 54
     },
     {
       "secid": "RTGZ",
@@ -847,83 +1437,17 @@
       "reversal_1m": 7.01,
       "pos_52w": 19.2,
       "volatility": 48.9,
-      "turnover_rub": 12686200.0,
+      "turnover_rub": 16632400.0,
       "in_index": false,
       "ranks": {
-        "импульс": 38,
-        "разворот": 37,
-        "у максимума": 32,
-        "спокойствие": 27
+        "импульс": 54,
+        "разворот": 58,
+        "у максимума": 50,
+        "спокойствие": 39
       },
-      "score": 134,
-      "score_norm": 42.0,
-      "rank": 36
-    },
-    {
-      "secid": "AFKS",
-      "name": "Система ао",
-      "price": 7.991,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -46.4,
-      "reversal_1m": -10.75,
-      "pos_52w": 4.7,
-      "volatility": 62.2,
-      "turnover_rub": 127807071.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 41,
-        "разворот": 2,
-        "у максимума": 52,
-        "спокойствие": 40
-      },
-      "score": 135,
-      "score_norm": 41.5,
-      "rank": 37
-    },
-    {
-      "secid": "CHMF",
-      "name": "СевСт-ао",
-      "price": 611.4,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -46.11,
-      "reversal_1m": 6.37,
-      "pos_52w": 17.0,
-      "volatility": 51.0,
-      "turnover_rub": 95399464.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 40,
-        "разворот": 32,
-        "у максимума": 34,
-        "спокойствие": 30
-      },
-      "score": 136,
-      "score_norm": 41.1,
-      "rank": 38
-    },
-    {
-      "secid": "OZON",
-      "name": "Озон",
-      "price": 2954.0,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -37.32,
-      "reversal_1m": 7.2,
-      "pos_52w": 14.1,
-      "volatility": 46.0,
-      "turnover_rub": 518170422.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 35,
-        "разворот": 40,
-        "у максимума": 38,
-        "спокойствие": 23
-      },
-      "score": 136,
-      "score_norm": 41.1,
-      "rank": 39
+      "score": 201,
+      "score_norm": 42.7,
+      "rank": 55
     },
     {
       "secid": "ENPG",
@@ -935,17 +1459,17 @@
       "reversal_1m": 4.48,
       "pos_52w": 20.5,
       "volatility": 63.9,
-      "turnover_rub": 14706495.0,
+      "turnover_rub": 290502675.0,
       "in_index": true,
       "ranks": {
-        "импульс": 36,
-        "разворот": 29,
-        "у максимума": 29,
-        "спокойствие": 44
+        "импульс": 50,
+        "разворот": 42,
+        "у максимума": 44,
+        "спокойствие": 67
       },
-      "score": 138,
-      "score_norm": 40.2,
-      "rank": 40
+      "score": 203,
+      "score_norm": 42.2,
+      "rank": 56
     },
     {
       "secid": "MGNT",
@@ -957,17 +1481,39 @@
       "reversal_1m": -7.16,
       "pos_52w": 4.7,
       "volatility": 50.9,
-      "turnover_rub": 58182040.0,
+      "turnover_rub": 676270951.0,
       "in_index": false,
       "ranks": {
-        "импульс": 49,
+        "импульс": 70,
         "разворот": 8,
-        "у максимума": 53,
-        "спокойствие": 29
+        "у максимума": 83,
+        "спокойствие": 42
       },
-      "score": 139,
-      "score_norm": 39.7,
-      "rank": 41
+      "score": 203,
+      "score_norm": 42.2,
+      "rank": 57
+    },
+    {
+      "secid": "OZON",
+      "name": "Озон",
+      "price": 2954.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -37.32,
+      "reversal_1m": 7.2,
+      "pos_52w": 14.1,
+      "volatility": 46.0,
+      "turnover_rub": 2635100401.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 48,
+        "разворот": 61,
+        "у максимума": 63,
+        "спокойствие": 32
+      },
+      "score": 204,
+      "score_norm": 41.9,
+      "rank": 58
     },
     {
       "secid": "RUAL",
@@ -979,17 +1525,83 @@
       "reversal_1m": 12.53,
       "pos_52w": 24.5,
       "volatility": 62.5,
-      "turnover_rub": 137995082.0,
+      "turnover_rub": 901937172.0,
       "in_index": true,
       "ranks": {
-        "импульс": 28,
-        "разворот": 47,
-        "у максимума": 23,
-        "спокойствие": 41
+        "импульс": 38,
+        "разворот": 68,
+        "у максимума": 34,
+        "спокойствие": 64
       },
-      "score": 139,
-      "score_norm": 39.7,
-      "rank": 42
+      "score": 204,
+      "score_norm": 41.9,
+      "rank": 59
+    },
+    {
+      "secid": "AFKS",
+      "name": "Система ао",
+      "price": 7.991,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -46.4,
+      "reversal_1m": -10.75,
+      "pos_52w": 4.7,
+      "volatility": 62.2,
+      "turnover_rub": 817250088.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 60,
+        "разворот": 2,
+        "у максимума": 82,
+        "спокойствие": 63
+      },
+      "score": 207,
+      "score_norm": 41.0,
+      "rank": 60
+    },
+    {
+      "secid": "CHMF",
+      "name": "СевСт-ао",
+      "price": 611.4,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -46.11,
+      "reversal_1m": 6.37,
+      "pos_52w": 17.0,
+      "volatility": 51.0,
+      "turnover_rub": 827712616.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 59,
+        "разворот": 51,
+        "у максимума": 54,
+        "спокойствие": 43
+      },
+      "score": 207,
+      "score_norm": 41.0,
+      "rank": 61
+    },
+    {
+      "secid": "FIXR",
+      "name": "Фикс Прайс",
+      "price": 0.3988,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -55.95,
+      "reversal_1m": 4.67,
+      "pos_52w": 9.0,
+      "volatility": 40.8,
+      "turnover_rub": 18266651.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 74,
+        "разворот": 44,
+        "у максимума": 77,
+        "спокойствие": 17
+      },
+      "score": 212,
+      "score_norm": 39.5,
+      "rank": 62
     },
     {
       "secid": "NLMK",
@@ -1001,149 +1613,39 @@
       "reversal_1m": 9.22,
       "pos_52w": 19.3,
       "volatility": 48.3,
-      "turnover_rub": 70672433.0,
+      "turnover_rub": 626871157.0,
       "in_index": true,
       "ranks": {
-        "импульс": 45,
-        "разворот": 43,
-        "у максимума": 31,
-        "спокойствие": 25
+        "импульс": 64,
+        "разворот": 64,
+        "у максимума": 49,
+        "спокойствие": 37
       },
-      "score": 144,
-      "score_norm": 37.5,
-      "rank": 43
+      "score": 214,
+      "score_norm": 39.0,
+      "rank": 63
     },
     {
-      "secid": "ALRS",
-      "name": "АЛРОСА ао",
-      "price": 18.92,
+      "secid": "BELU",
+      "name": "НоваБев ао",
+      "price": 264.8,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": -56.68,
-      "reversal_1m": -9.52,
-      "pos_52w": 8.8,
-      "volatility": 73.4,
-      "turnover_rub": 161537580.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 53,
-        "разворот": 3,
-        "у максимума": 48,
-        "спокойствие": 50
-      },
-      "score": 154,
-      "score_norm": 33.0,
-      "rank": 44
-    },
-    {
-      "secid": "KMAZ",
-      "name": "КАМАЗ",
-      "price": 52.3,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -48.08,
-      "reversal_1m": 7.61,
-      "pos_52w": 22.2,
-      "volatility": 63.5,
-      "turnover_rub": 24247117.0,
+      "momentum_12_1": -48.56,
+      "reversal_1m": 12.68,
+      "pos_52w": 22.9,
+      "volatility": 50.5,
+      "turnover_rub": 104900425.0,
       "in_index": false,
       "ranks": {
-        "импульс": 47,
-        "разворот": 41,
-        "у максимума": 25,
-        "спокойствие": 43
+        "импульс": 67,
+        "разворот": 70,
+        "у максимума": 38,
+        "спокойствие": 41
       },
-      "score": 156,
-      "score_norm": 32.1,
-      "rank": 45
-    },
-    {
-      "secid": "MTLR",
-      "name": "Мечел ао",
-      "price": 36.98,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -57.23,
-      "reversal_1m": -2.35,
-      "pos_52w": 12.8,
-      "volatility": 69.0,
-      "turnover_rub": 75424165.0,
-      "in_index": false,
-      "ranks": {
-        "импульс": 54,
-        "разворот": 14,
-        "у максимума": 41,
-        "спокойствие": 47
-      },
-      "score": 156,
-      "score_norm": 32.1,
-      "rank": 46
-    },
-    {
-      "secid": "UPRO",
-      "name": "Юнипро ао",
-      "price": 0.971,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -47.26,
-      "reversal_1m": 8.37,
-      "pos_52w": 22.1,
-      "volatility": 64.4,
-      "turnover_rub": 21626966.0,
-      "in_index": false,
-      "ranks": {
-        "импульс": 43,
-        "разворот": 42,
-        "у максимума": 26,
-        "спокойствие": 45
-      },
-      "score": 156,
-      "score_norm": 32.1,
-      "rank": 47
-    },
-    {
-      "secid": "TRMK",
-      "name": "ТМК ао",
-      "price": 57.62,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -46.45,
-      "reversal_1m": 2.53,
-      "pos_52w": 14.1,
-      "volatility": 83.4,
-      "turnover_rub": 33051946.0,
-      "in_index": false,
-      "ranks": {
-        "импульс": 42,
-        "разворот": 23,
-        "у максимума": 39,
-        "спокойствие": 53
-      },
-      "score": 157,
-      "score_norm": 31.7,
-      "rank": 48
-    },
-    {
-      "secid": "AFLT",
-      "name": "Аэрофлот",
-      "price": 32.87,
-      "jump_pct": null,
-      "excluded": null,
-      "momentum_12_1": -50.75,
-      "reversal_1m": 5.18,
-      "pos_52w": 11.3,
-      "volatility": 52.9,
-      "turnover_rub": 66318696.0,
-      "in_index": true,
-      "ranks": {
-        "импульс": 48,
-        "разворот": 31,
-        "у максимума": 44,
-        "спокойствие": 35
-      },
-      "score": 158,
-      "score_norm": 31.2,
-      "rank": 49
+      "score": 216,
+      "score_norm": 38.4,
+      "rank": 64
     },
     {
       "secid": "MAGN",
@@ -1155,17 +1657,193 @@
       "reversal_1m": 17.26,
       "pos_52w": 27.2,
       "volatility": 57.6,
-      "turnover_rub": 250655777.0,
+      "turnover_rub": 1255243700.0,
       "in_index": true,
       "ranks": {
-        "импульс": 46,
-        "разворот": 54,
-        "у максимума": 21,
-        "спокойствие": 38
+        "импульс": 65,
+        "разворот": 78,
+        "у максимума": 29,
+        "спокойствие": 58
       },
-      "score": 159,
-      "score_norm": 30.8,
-      "rank": 50
+      "score": 230,
+      "score_norm": 34.3,
+      "rank": 65
+    },
+    {
+      "secid": "KMAZ",
+      "name": "КАМАЗ",
+      "price": 52.3,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -48.08,
+      "reversal_1m": 7.61,
+      "pos_52w": 22.2,
+      "volatility": 63.5,
+      "turnover_rub": 49966722.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 66,
+        "разворот": 62,
+        "у максимума": 39,
+        "спокойствие": 66
+      },
+      "score": 233,
+      "score_norm": 33.4,
+      "rank": 66
+    },
+    {
+      "secid": "UPRO",
+      "name": "Юнипро ао",
+      "price": 0.971,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -47.26,
+      "reversal_1m": 8.37,
+      "pos_52w": 22.1,
+      "volatility": 64.4,
+      "turnover_rub": 155179942.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 62,
+        "разворот": 63,
+        "у максимума": 40,
+        "спокойствие": 68
+      },
+      "score": 233,
+      "score_norm": 33.4,
+      "rank": 67
+    },
+    {
+      "secid": "ALRS",
+      "name": "АЛРОСА ао",
+      "price": 18.92,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -56.68,
+      "reversal_1m": -9.52,
+      "pos_52w": 8.8,
+      "volatility": 73.4,
+      "turnover_rub": 1319938335.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 78,
+        "разворот": 3,
+        "у максимума": 78,
+        "спокойствие": 76
+      },
+      "score": 235,
+      "score_norm": 32.8,
+      "rank": 68
+    },
+    {
+      "secid": "AFLT",
+      "name": "Аэрофлот",
+      "price": 32.87,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -50.75,
+      "reversal_1m": 5.18,
+      "pos_52w": 11.3,
+      "volatility": 52.9,
+      "turnover_rub": 349495907.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 69,
+        "разворот": 47,
+        "у максимума": 71,
+        "спокойствие": 49
+      },
+      "score": 236,
+      "score_norm": 32.6,
+      "rank": 69
+    },
+    {
+      "secid": "MTLR",
+      "name": "Мечел ао",
+      "price": 36.98,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -57.23,
+      "reversal_1m": -2.35,
+      "pos_52w": 12.8,
+      "volatility": 69.0,
+      "turnover_rub": 410275780.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 80,
+        "разворот": 17,
+        "у максимума": 67,
+        "спокойствие": 72
+      },
+      "score": 236,
+      "score_norm": 32.6,
+      "rank": 70
+    },
+    {
+      "secid": "OGKB",
+      "name": "ОГК-2 ао",
+      "price": 0.2039,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -48.65,
+      "reversal_1m": 5.1,
+      "pos_52w": 14.4,
+      "volatility": 60.8,
+      "turnover_rub": 17196885.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 68,
+        "разворот": 46,
+        "у максимума": 60,
+        "спокойствие": 62
+      },
+      "score": 236,
+      "score_norm": 32.6,
+      "rank": 71
+    },
+    {
+      "secid": "TRMK",
+      "name": "ТМК ао",
+      "price": 57.62,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -46.45,
+      "reversal_1m": 2.53,
+      "pos_52w": 14.1,
+      "volatility": 83.4,
+      "turnover_rub": 86927126.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 61,
+        "разворот": 32,
+        "у максимума": 64,
+        "спокойствие": 80
+      },
+      "score": 237,
+      "score_norm": 32.3,
+      "rank": 72
+    },
+    {
+      "secid": "SOFL",
+      "name": "iСофтлайн",
+      "price": 53.14,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -52.8,
+      "reversal_1m": 4.73,
+      "pos_52w": 19.0,
+      "volatility": 69.0,
+      "turnover_rub": 25192969.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 71,
+        "разворот": 45,
+        "у максимума": 51,
+        "спокойствие": 73
+      },
+      "score": 240,
+      "score_norm": 31.4,
+      "rank": 73
     },
     {
       "secid": "SPBE",
@@ -1177,17 +1855,17 @@
       "reversal_1m": -1.17,
       "pos_52w": 10.9,
       "volatility": 71.7,
-      "turnover_rub": 30990892.0,
+      "turnover_rub": 238929025.0,
       "in_index": false,
       "ranks": {
-        "импульс": 50,
-        "разворот": 16,
-        "у максимума": 45,
-        "спокойствие": 49
+        "импульс": 73,
+        "разворот": 20,
+        "у максимума": 72,
+        "спокойствие": 75
       },
-      "score": 160,
-      "score_norm": 30.4,
-      "rank": 51
+      "score": 240,
+      "score_norm": 31.4,
+      "rank": 74
     },
     {
       "secid": "IRKT",
@@ -1199,17 +1877,39 @@
       "reversal_1m": 23.68,
       "pos_52w": 35.7,
       "volatility": 77.5,
-      "turnover_rub": 14236382.0,
+      "turnover_rub": 66825206.0,
       "in_index": false,
       "ranks": {
-        "импульс": 44,
-        "разворот": 56,
-        "у максимума": 12,
-        "спокойствие": 52
+        "импульс": 63,
+        "разворот": 84,
+        "у максимума": 19,
+        "спокойствие": 78
       },
-      "score": 164,
-      "score_norm": 28.6,
-      "rank": 52
+      "score": 244,
+      "score_norm": 30.2,
+      "rank": 75
+    },
+    {
+      "secid": "MTLRP",
+      "name": "Мечел ап",
+      "price": 37.1,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -56.56,
+      "reversal_1m": 2.77,
+      "pos_52w": 14.1,
+      "volatility": 67.7,
+      "turnover_rub": 51489817.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 77,
+        "разворот": 35,
+        "у максимума": 62,
+        "спокойствие": 70
+      },
+      "score": 244,
+      "score_norm": 30.2,
+      "rank": 76
     },
     {
       "secid": "VKCO",
@@ -1221,17 +1921,39 @@
       "reversal_1m": -5.08,
       "pos_52w": 4.2,
       "volatility": 66.5,
-      "turnover_rub": 218406156.0,
+      "turnover_rub": 1033967594.0,
       "in_index": true,
       "ranks": {
-        "импульс": 55,
+        "импульс": 82,
         "разворот": 10,
-        "у максимума": 54,
-        "спокойствие": 46
+        "у максимума": 84,
+        "спокойствие": 69
       },
-      "score": 165,
-      "score_norm": 28.1,
-      "rank": 53
+      "score": 245,
+      "score_norm": 29.9,
+      "rank": 77
+    },
+    {
+      "secid": "AQUA",
+      "name": "ИНАРКТИКА",
+      "price": 353.2,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -53.03,
+      "reversal_1m": 19.45,
+      "pos_52w": 24.2,
+      "volatility": 60.6,
+      "turnover_rub": 48519019.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 72,
+        "разворот": 81,
+        "у максимума": 35,
+        "спокойствие": 61
+      },
+      "score": 249,
+      "score_norm": 28.8,
+      "rank": 78
     },
     {
       "secid": "ASTR",
@@ -1243,17 +1965,39 @@
       "reversal_1m": 12.63,
       "pos_52w": 27.6,
       "volatility": 106.2,
-      "turnover_rub": 62426366.0,
+      "turnover_rub": 376172333.0,
       "in_index": false,
       "ranks": {
-        "импульс": 51,
-        "разворот": 48,
-        "у максимума": 20,
-        "спокойствие": 56
+        "импульс": 75,
+        "разворот": 69,
+        "у максимума": 28,
+        "спокойствие": 85
       },
-      "score": 175,
-      "score_norm": 23.7,
-      "rank": 54
+      "score": 257,
+      "score_norm": 26.5,
+      "rank": 79
+    },
+    {
+      "secid": "DIAS",
+      "name": "iДиасофт",
+      "price": 1200.5,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -61.17,
+      "reversal_1m": 15.66,
+      "pos_52w": 16.1,
+      "volatility": 55.2,
+      "turnover_rub": 26849855.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 83,
+        "разворот": 72,
+        "у максимума": 55,
+        "спокойствие": 55
+      },
+      "score": 265,
+      "score_norm": 24.1,
+      "rank": 80
     },
     {
       "secid": "UNAC",
@@ -1265,17 +2009,105 @@
       "reversal_1m": 39.34,
       "pos_52w": 35.8,
       "volatility": 102.1,
-      "turnover_rub": 14846420.0,
+      "turnover_rub": 45958664.0,
       "in_index": false,
       "ranks": {
-        "импульс": 52,
-        "разворот": 57,
-        "у максимума": 11,
-        "спокойствие": 55
+        "импульс": 76,
+        "разворот": 87,
+        "у максимума": 18,
+        "спокойствие": 84
       },
-      "score": 175,
-      "score_norm": 23.7,
-      "rank": 55
+      "score": 265,
+      "score_norm": 24.1,
+      "rank": 81
+    },
+    {
+      "secid": "UWGN",
+      "name": "ОВК ао",
+      "price": 19.16,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -57.51,
+      "reversal_1m": 15.98,
+      "pos_52w": 23.8,
+      "volatility": 85.9,
+      "turnover_rub": 28590485.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 81,
+        "разворот": 74,
+        "у максимума": 36,
+        "спокойствие": 82
+      },
+      "score": 273,
+      "score_norm": 21.8,
+      "rank": 82
+    },
+    {
+      "secid": "ETLN",
+      "name": "ЭталонГруп",
+      "price": 21.54,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -65.13,
+      "reversal_1m": 5.28,
+      "pos_52w": 10.5,
+      "volatility": 68.4,
+      "turnover_rub": 10239632.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 84,
+        "разворот": 48,
+        "у максимума": 73,
+        "спокойствие": 71
+      },
+      "score": 276,
+      "score_norm": 20.9,
+      "rank": 83
+    },
+    {
+      "secid": "ROLO",
+      "name": "Русолово",
+      "price": 0.3374,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -56.79,
+      "reversal_1m": 24.69,
+      "pos_52w": 25.4,
+      "volatility": 84.5,
+      "turnover_rub": 32216558.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 79,
+        "разворот": 85,
+        "у максимума": 32,
+        "спокойствие": 81
+      },
+      "score": 277,
+      "score_norm": 20.6,
+      "rank": 84
+    },
+    {
+      "secid": "IVAT",
+      "name": "iИВА",
+      "price": 68.95,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -67.03,
+      "reversal_1m": 21.18,
+      "pos_52w": 20.0,
+      "volatility": 113.2,
+      "turnover_rub": 38117454.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 85,
+        "разворот": 82,
+        "у максимума": 45,
+        "спокойствие": 86
+      },
+      "score": 298,
+      "score_norm": 14.5,
+      "rank": 85
     },
     {
       "secid": "WUSH",
@@ -1287,17 +2119,17 @@
       "reversal_1m": 16.16,
       "pos_52w": 15.2,
       "volatility": 96.5,
-      "turnover_rub": 44725062.0,
+      "turnover_rub": 207448672.0,
       "in_index": false,
       "ranks": {
-        "импульс": 56,
-        "разворот": 51,
-        "у максимума": 36,
-        "спокойствие": 54
+        "импульс": 86,
+        "разворот": 75,
+        "у максимума": 58,
+        "спокойствие": 83
       },
-      "score": 197,
-      "score_norm": 13.8,
-      "rank": 56
+      "score": 302,
+      "score_norm": 13.4,
+      "rank": 86
     },
     {
       "secid": "SMLT",
@@ -1309,17 +2141,17 @@
       "reversal_1m": 23.61,
       "pos_52w": 14.9,
       "volatility": 115.4,
-      "turnover_rub": 1189499798.0,
+      "turnover_rub": 5546373028.0,
       "in_index": false,
       "ranks": {
-        "импульс": 57,
-        "разворот": 55,
-        "у максимума": 37,
-        "спокойствие": 57
+        "импульс": 87,
+        "разворот": 83,
+        "у максимума": 59,
+        "спокойствие": 87
       },
-      "score": 206,
-      "score_norm": 9.8,
-      "rank": 57
+      "score": 316,
+      "score_norm": 9.3,
+      "rank": 87
     },
     {
       "secid": "CBOM",
@@ -1331,8 +2163,36 @@
       "reversal_1m": 34.31,
       "pos_52w": 69.1,
       "volatility": 73.1,
-      "turnover_rub": 405745856.0,
+      "turnover_rub": 885565005.0,
       "in_index": true,
+      "rank": null
+    },
+    {
+      "secid": "EUTR",
+      "name": "ЕвроТранс",
+      "price": 31.8,
+      "jump_pct": 101.8,
+      "excluded": "скачок цены +102% за день - вероятно корпоративное действие, а не рынок",
+      "momentum_12_1": -64.97,
+      "reversal_1m": -27.4,
+      "pos_52w": 5.2,
+      "volatility": 233.9,
+      "turnover_rub": 31301574.0,
+      "in_index": false,
+      "rank": null
+    },
+    {
+      "secid": "MVID",
+      "name": "М.видео",
+      "price": 43.5,
+      "jump_pct": 31.1,
+      "excluded": "скачок цены +31% за день - вероятно корпоративное действие, а не рынок",
+      "momentum_12_1": -52.71,
+      "reversal_1m": -2.25,
+      "pos_52w": 12.1,
+      "volatility": 63.6,
+      "turnover_rub": 14958834.0,
+      "in_index": false,
       "rank": null
     },
     {
@@ -1345,7 +2205,7 @@
       "reversal_1m": -10.68,
       "pos_52w": 12.3,
       "volatility": 88.4,
-      "turnover_rub": 559675834.0,
+      "turnover_rub": 3235522285.0,
       "in_index": true,
       "rank": null
     },
@@ -1359,7 +2219,7 @@
       "reversal_1m": 11.46,
       "pos_52w": 28.0,
       "volatility": 115.4,
-      "turnover_rub": 26580092.0,
+      "turnover_rub": 164002116.0,
       "in_index": true,
       "rank": null
     },
@@ -1373,7 +2233,7 @@
       "reversal_1m": 36.27,
       "pos_52w": 21.4,
       "volatility": 129.1,
-      "turnover_rub": 20858557.0,
+      "turnover_rub": 195940610.0,
       "in_index": false,
       "rank": null
     },
@@ -1387,7 +2247,21 @@
       "reversal_1m": 35.01,
       "pos_52w": 22.8,
       "volatility": 124.2,
-      "turnover_rub": 83092778.0,
+      "turnover_rub": 283926527.0,
+      "in_index": false,
+      "rank": null
+    },
+    {
+      "secid": "SVAV",
+      "name": "СОЛЛЕРС",
+      "price": 368.0,
+      "jump_pct": 50.8,
+      "excluded": "скачок цены +51% за день - вероятно корпоративное действие, а не рынок",
+      "momentum_12_1": -40.64,
+      "reversal_1m": -2.52,
+      "pos_52w": 33.2,
+      "volatility": 127.2,
+      "turnover_rub": 10227443.0,
       "in_index": false,
       "rank": null
     },
@@ -1401,7 +2275,7 @@
       "reversal_1m": -0.08,
       "pos_52w": 0.9,
       "volatility": 38.4,
-      "turnover_rub": 419149855.0,
+      "turnover_rub": 3099509840.0,
       "in_index": true,
       "rank": null
     }
