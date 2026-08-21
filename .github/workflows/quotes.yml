@@ -1,7 +1,6 @@
 name: Обновление котировок
 
 on:
-  # Раз в день в 19:05 МСК = 16:05 UTC, по будням.
   schedule:
     - cron: "5 16 * * 1-5"
   workflow_dispatch:
@@ -16,11 +15,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
 
     steps:
       - name: Версия workflow
-        run: echo ">>> ВЕРСИЯ 5 <<< облигации + акции"
+        run: echo ">>> ВЕРСИЯ 6 <<< облигации + акции + скринер"
 
       - uses: actions/checkout@v4
         with:
@@ -33,10 +32,13 @@ jobs:
       - name: Облигации
         run: python fetch_quotes.py
 
-      # continue-on-error: если модуль акций упадёт, облигации всё равно
-      # сохранятся. Они уже работают, ломать их экспериментом не хочется.
       - name: Акции
         run: python fetch_stocks.py
+        continue-on-error: true
+
+      # Скринер читает результаты двух предыдущих шагов.
+      - name: Скринер
+        run: python screener.py
         continue-on-error: true
 
       - name: Закоммитить результат
@@ -49,23 +51,17 @@ jobs:
             echo "--- попытка $i ---"
             git fetch origin "$BRANCH"
             git reset "origin/$BRANCH"
-
             git add -A
             if git diff --staged --quiet; then
-              echo "Изменений нет, коммит не нужен"
+              echo "Изменений нет"
               exit 0
             fi
-
             git commit -m "Данные за $(date -u '+%Y-%m-%d')"
-
             if git push origin "HEAD:$BRANCH"; then
               echo "Отправлено с попытки $i"
               exit 0
             fi
-
-            echo "Не прошло, пробую снова через 5 секунд..."
+            echo "Не прошло, пробую снова..."
             sleep 5
           done
-
-          echo "Не удалось отправить результат за три попытки"
           exit 1
