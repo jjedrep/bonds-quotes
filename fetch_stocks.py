@@ -196,8 +196,22 @@ def factors(secid, hist, snap):
         return None
 
     closes = [c for _, c, _ in hist]
-    last = closes[-1]
+    hist_last = closes[-1]           # закрытие последнего дня в кэше
+    hist_date = hist[-1][0]
     jump = find_jump(closes)
+
+    # Историю ISS публикует с задержкой: вечером текущего дня свечи за
+    # сегодня ещё нет. Поэтому цену берём из живой доски, а историю
+    # используем только для расчёта факторов.
+    live = None
+    for key in ("LAST", "MARKETPRICE", "LCLOSEPRICE", "WAPRICE", "PREVPRICE"):
+        v = snap.get(key)
+        if v:
+            live = float(v)
+            break
+    last = live if live else hist_last
+    stale = (live is not None and hist_last and
+             abs(live / hist_last - 1) > 0.0001)
 
     def ret(days_ago_from, days_ago_to=0):
         """Доходность между двумя точками в прошлом."""
@@ -232,7 +246,12 @@ def factors(secid, hist, snap):
     return {
         "secid": secid,
         "name": (snap.get("SHORTNAME") or secid).strip(),
-        "price": last,
+        "price": round(last, 4),
+        "price_source": "живая доска" if live else "кэш истории",
+        "hist_last_date": hist_date,
+        "hist_last_close": hist_last,
+        "price_moved_since_hist": round((last / hist_last - 1) * 100, 2)
+                                  if (stale and hist_last) else 0.0,
         "jump_pct": jump,
         "excluded": ("скачок цены %+.0f%% за день - вероятно корпоративное "
                      "действие, а не рынок" % jump) if jump else None,
@@ -394,6 +413,14 @@ def to_markdown(items, today, check, imoex, regime=None):
     excluded = [i for i in items if i.get("excluded")]
     items = [i for i in items if i.get("rank")]
 
+    if items:
+        hd = sorted({i.get("hist_last_date") for i in items
+                     if i.get("hist_last_date")})
+        if hd:
+            out.append(f"\n_Факторы посчитаны по истории до **{hd[-1]}**. "
+                       f"Цены — текущие, из биржевой доски. Расхождение "
+                       f"нормально: ISS публикует дневные свечи с задержкой._\n")
+
     out.append("\n## Рейтинг\n")
     out.append("| # | Бумага | В индексе | Цена | Импульс 12-1 | Мес. изм. | "
                "Годовой диапазон | Волат. | Оборот |")
@@ -501,6 +528,14 @@ def main():
     open("stocks.md", "w", encoding="utf-8").write(
         to_markdown(items, today, check, imoex, regime))
 
+    hd = sorted({i.get("hist_last_date") for i in items
+                 if i.get("hist_last_date")})
+    if hd:
+        print(f"  история в кэше до {hd[-1]}, цены из живой доски за {today}")
+    moved = [i for i in items if abs(i.get("price_moved_since_hist") or 0) > 3]
+    if moved:
+        print(f"  сильно сдвинулись с последней свечи: "
+              f"{', '.join(i['secid'] for i in moved[:8])}")
     print(f"Готово: {len(items)} бумаг")
     print(f"  топ: {', '.join(top)}")
     print(f"  дно: {', '.join(bottom)}")
@@ -511,3 +546,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
