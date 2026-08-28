@@ -1,12 +1,18 @@
 {
-  "generated_utc": "2026-08-26T16:54:51Z",
-  "trade_date": "2026-08-26",
-  "index_week_pct": -2.9822433102104307,
+  "generated_utc": "2026-08-28T00:51:38Z",
+  "trade_date": "2026-08-28",
+  "index_week_pct": 1.0718424101969992,
   "calendar": [
     {
       "date": "2026-09-08",
       "what": "погашение ФосАгро П2",
       "secid": "RU000A109K40",
+      "type": "погашение"
+    },
+    {
+      "date": "2026-09-10",
+      "what": "погашение Ростел1P1R",
+      "secid": "RU000A0JWTN2",
       "type": "погашение"
     },
     {
@@ -34,30 +40,100 @@
       "type": "погашение"
     },
     {
-      "date": "2026-10-17",
-      "what": "погашение ИКС5Фин3P2",
-      "secid": "RU000A1075S4",
-      "type": "погашение"
-    },
-    {
       "date": "2026-10-18",
       "what": "погашение ДОМ 2P5",
       "secid": "RU000A109U97",
       "type": "погашение"
-    },
-    {
-      "date": "2026-10-30",
-      "what": "погашение ТрнфБО1P13",
-      "secid": "RU000A1010B7",
-      "type": "погашение"
-    },
-    {
-      "date": "2026-11-12",
-      "what": "погашение КраснодКр3",
-      "secid": "RU000A1011B5",
-      "type": "погашение"
     }
   ],
-  "candidates": [],
-  "blocked_count": 10
+  "candidates": [
+    {
+      "secid": "BANEP",
+      "name": "Башнефт ап",
+      "price": 742.5,
+      "price_source": "живая доска",
+      "hist_last_date": "2026-08-27",
+      "hist_last_close": 742.5,
+      "price_moved_since_hist": 0.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -2.82,
+      "reversal_1m": -24.27,
+      "pos_52w": 0.0,
+      "volatility": 50.7,
+      "turnover_rub": 113517072.0,
+      "in_index": false,
+      "ranks": {
+        "импульс": 12,
+        "разворот": 2,
+        "у максимума": 97,
+        "спокойствие": 44
+      },
+      "score": 155,
+      "score_norm": 61.1,
+      "rank": 29,
+      "reasons": [
+        "упала на -24% за месяц, отрасль «нефтегаз» -4% — отстаёт на 20 п.п."
+      ]
+    },
+    {
+      "secid": "OZON",
+      "name": "Озон",
+      "price": 2193.0,
+      "price_source": "живая доска",
+      "hist_last_date": "2026-08-27",
+      "hist_last_close": 2193.0,
+      "price_moved_since_hist": 0.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -30.81,
+      "reversal_1m": -27.84,
+      "pos_52w": 0.0,
+      "volatility": 67.0,
+      "turnover_rub": 8792130701.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 54,
+        "разворот": 1,
+        "у максимума": 98,
+        "спокойствие": 78
+      },
+      "score": 231,
+      "score_norm": 41.5,
+      "rank": 67,
+      "reasons": [
+        "упала на -28% за месяц, отрасль «ритейл» -15% — отстаёт на 13 п.п."
+      ]
+    },
+    {
+      "secid": "VKCO",
+      "name": "МКПАО \"ВК\"",
+      "price": 116.6,
+      "price_source": "живая доска",
+      "hist_last_date": "2026-08-27",
+      "hist_last_close": 116.6,
+      "price_moved_since_hist": 0.0,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -55.66,
+      "reversal_1m": -22.08,
+      "pos_52w": 0.4,
+      "volatility": 68.8,
+      "turnover_rub": 1517076909.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 92,
+        "разворот": 3,
+        "у максимума": 96,
+        "спокойствие": 83
+      },
+      "score": 274,
+      "score_norm": 30.4,
+      "rank": 83,
+      "reasons": [
+        "упала на -22% за месяц, отрасль «технологии» -1% — отстаёт на 21 п.п."
+      ]
+    }
+  ],
+  "blocked_count": 9
 }
