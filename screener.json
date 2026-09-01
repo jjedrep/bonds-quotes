@@ -1,20 +1,8 @@
 {
-  "generated_utc": "2026-08-31T21:27:42Z",
-  "trade_date": "2026-08-31",
-  "index_week_pct": 4.409516735750052,
+  "generated_utc": "2026-09-01T08:52:18Z",
+  "trade_date": "2026-09-01",
+  "index_week_pct": 5.3782648578187375,
   "calendar": [
-    {
-      "date": "2026-09-08",
-      "what": "погашение ФосАгро П2",
-      "secid": "RU000A109K40",
-      "type": "погашение"
-    },
-    {
-      "date": "2026-09-10",
-      "what": "погашение Ростел1P1R",
-      "secid": "RU000A0JWTN2",
-      "type": "погашение"
-    },
     {
       "date": "2026-09-11",
       "what": "заседание ЦБ по ключевой ставке",
@@ -28,21 +16,9 @@
       "type": "погашение"
     },
     {
-      "date": "2026-09-28",
-      "what": "погашение СамолетP20",
-      "secid": "RU000A10CZA1",
-      "type": "погашение"
-    },
-    {
       "date": "2026-10-07",
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
-      "type": "погашение"
-    },
-    {
-      "date": "2026-10-17",
-      "what": "погашение ИКС5Фин3P2",
-      "secid": "RU000A1075S4",
       "type": "погашение"
     },
     {
@@ -56,32 +32,32 @@
     {
       "secid": "BANEP",
       "name": "Башнефт ап",
-      "price": 763.5,
+      "price": 770.0,
       "price_source": "живая доска",
       "hist_last_date": "2026-08-31",
       "hist_last_close": 763.5,
-      "price_moved_since_hist": 0.0,
+      "price_moved_since_hist": 0.85,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": 0.15,
       "reversal_1m": -23.69,
-      "pos_52w": 7.0,
+      "pos_52w": 9.2,
       "volatility": 51.0,
-      "turnover_rub": 107949158.0,
+      "turnover_rub": 60738140.0,
       "in_index": false,
       "ranks": {
-        "импульс": 12,
+        "импульс": 7,
         "разворот": 1,
-        "у максимума": 98,
-        "спокойствие": 44
+        "у максимума": 66,
+        "спокойствие": 31
       },
-      "score": 155,
-      "score_norm": 64.0,
-      "rank": 27,
+      "score": 105,
+      "score_norm": 65.4,
+      "rank": 18,
       "reasons": [
         "упала на -24% за месяц, отрасль «нефтегаз» -1% — отстаёт на 23 п.п."
       ]
     }
   ],
-  "blocked_count": 11
+  "blocked_count": 7
 }
