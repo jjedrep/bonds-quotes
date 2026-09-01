@@ -1,8 +1,14 @@
 {
-  "generated_utc": "2026-09-01T08:52:18Z",
+  "generated_utc": "2026-09-01T19:22:59Z",
   "trade_date": "2026-09-01",
-  "index_week_pct": 5.3782648578187375,
+  "index_week_pct": 4.486959014044123,
   "calendar": [
+    {
+      "date": "2026-09-08",
+      "what": "погашение ФосАгро П2",
+      "secid": "RU000A109K40",
+      "type": "погашение"
+    },
     {
       "date": "2026-09-11",
       "what": "заседание ЦБ по ключевой ставке",
@@ -16,6 +22,12 @@
       "type": "погашение"
     },
     {
+      "date": "2026-09-28",
+      "what": "погашение СамолетP20",
+      "secid": "RU000A10CZA1",
+      "type": "погашение"
+    },
+    {
       "date": "2026-10-07",
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
@@ -26,38 +38,44 @@
       "what": "погашение ДОМ 2P5",
       "secid": "RU000A109U97",
       "type": "погашение"
+    },
+    {
+      "date": "2026-10-30",
+      "what": "погашение ТрнфБО1P13",
+      "secid": "RU000A1010B7",
+      "type": "погашение"
     }
   ],
   "candidates": [
     {
       "secid": "BANEP",
       "name": "Башнефт ап",
-      "price": 770.0,
+      "price": 732.0,
       "price_source": "живая доска",
       "hist_last_date": "2026-08-31",
       "hist_last_close": 763.5,
-      "price_moved_since_hist": 0.85,
+      "price_moved_since_hist": -4.13,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": 0.15,
       "reversal_1m": -23.69,
-      "pos_52w": 9.2,
+      "pos_52w": -3.5,
       "volatility": 51.0,
-      "turnover_rub": 60738140.0,
+      "turnover_rub": 528952870.0,
       "in_index": false,
       "ranks": {
-        "импульс": 7,
+        "импульс": 12,
         "разворот": 1,
-        "у максимума": 66,
-        "спокойствие": 31
+        "у максимума": 100,
+        "спокойствие": 42
       },
-      "score": 105,
-      "score_norm": 65.4,
-      "rank": 18,
+      "score": 155,
+      "score_norm": 62.3,
+      "rank": 27,
       "reasons": [
         "упала на -24% за месяц, отрасль «нефтегаз» -1% — отстаёт на 23 п.п."
       ]
     }
   ],
-  "blocked_count": 7
+  "blocked_count": 9
 }
