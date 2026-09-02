@@ -1,14 +1,8 @@
 {
-  "generated_utc": "2026-09-01T19:22:59Z",
-  "trade_date": "2026-09-01",
-  "index_week_pct": 4.486959014044123,
+  "generated_utc": "2026-09-02T08:15:10Z",
+  "trade_date": "2026-09-02",
+  "index_week_pct": 2.7239672235015,
   "calendar": [
-    {
-      "date": "2026-09-08",
-      "what": "погашение ФосАгро П2",
-      "secid": "RU000A109K40",
-      "type": "погашение"
-    },
     {
       "date": "2026-09-11",
       "what": "заседание ЦБ по ключевой ставке",
@@ -22,12 +16,6 @@
       "type": "погашение"
     },
     {
-      "date": "2026-09-28",
-      "what": "погашение СамолетP20",
-      "secid": "RU000A10CZA1",
-      "type": "погашение"
-    },
-    {
       "date": "2026-10-07",
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
@@ -38,44 +26,67 @@
       "what": "погашение ДОМ 2P5",
       "secid": "RU000A109U97",
       "type": "погашение"
-    },
-    {
-      "date": "2026-10-30",
-      "what": "погашение ТрнфБО1P13",
-      "secid": "RU000A1010B7",
-      "type": "погашение"
     }
   ],
   "candidates": [
     {
       "secid": "BANEP",
       "name": "Башнефт ап",
-      "price": 732.0,
+      "price": 734.5,
       "price_source": "живая доска",
-      "hist_last_date": "2026-08-31",
-      "hist_last_close": 763.5,
-      "price_moved_since_hist": -4.13,
+      "hist_last_date": "2026-09-01",
+      "hist_last_close": 732.0,
+      "price_moved_since_hist": 0.34,
       "jump_pct": null,
       "excluded": null,
-      "momentum_12_1": 0.15,
-      "reversal_1m": -23.69,
-      "pos_52w": -3.5,
-      "volatility": 51.0,
-      "turnover_rub": 528952870.0,
+      "momentum_12_1": -1.18,
+      "reversal_1m": -27.02,
+      "pos_52w": 0.8,
+      "volatility": 51.6,
+      "turnover_rub": 20283894.0,
       "in_index": false,
       "ranks": {
-        "импульс": 12,
+        "импульс": 5,
         "разворот": 1,
-        "у максимума": 100,
-        "спокойствие": 42
+        "у максимума": 62,
+        "спокойствие": 30
       },
-      "score": 155,
-      "score_norm": 62.3,
-      "rank": 27,
+      "score": 98,
+      "score_norm": 61.5,
+      "rank": 17,
       "reasons": [
-        "упала на -24% за месяц, отрасль «нефтегаз» -1% — отстаёт на 23 п.п."
+        "упала на -27% за месяц, отрасль «нефтегаз» -3% — отстаёт на 24 п.п."
+      ]
+    },
+    {
+      "secid": "VKCO",
+      "name": "МКПАО \"ВК\"",
+      "price": 118.1,
+      "price_source": "живая доска",
+      "hist_last_date": "2026-09-01",
+      "hist_last_close": 117.25,
+      "price_moved_since_hist": 0.72,
+      "jump_pct": null,
+      "excluded": null,
+      "momentum_12_1": -53.85,
+      "reversal_1m": -24.23,
+      "pos_52w": 1.1,
+      "volatility": 69.4,
+      "turnover_rub": 112003855.0,
+      "in_index": true,
+      "ranks": {
+        "импульс": 60,
+        "разворот": 2,
+        "у максимума": 61,
+        "спокойствие": 52
+      },
+      "score": 175,
+      "score_norm": 29.9,
+      "rank": 55,
+      "reasons": [
+        "упала на -24% за месяц, отрасль «технологии» -7% — отстаёт на 17 п.п."
       ]
     }
   ],
-  "blocked_count": 9
+  "blocked_count": 6
 }
