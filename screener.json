@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-09-03T08:17:22Z",
+  "generated_utc": "2026-09-03T12:04:03Z",
   "trade_date": "2026-09-03",
-  "index_week_pct": 0.21800290976514702,
+  "index_week_pct": 1.5041004260778035,
   "calendar": [
     {
       "date": "2026-09-08",
@@ -22,6 +22,12 @@
       "type": "погашение"
     },
     {
+      "date": "2026-09-28",
+      "what": "погашение СамолетP20",
+      "secid": "RU000A10CZA1",
+      "type": "погашение"
+    },
+    {
       "date": "2026-10-07",
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
@@ -32,61 +38,61 @@
     {
       "secid": "BANEP",
       "name": "Башнефт ап",
-      "price": 731.0,
+      "price": 734.0,
       "price_source": "живая доска",
       "hist_last_date": "2026-09-02",
       "hist_last_close": 726.5,
-      "price_moved_since_hist": 0.62,
+      "price_moved_since_hist": 1.03,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": -1.23,
       "reversal_1m": -27.78,
-      "pos_52w": 1.4,
+      "pos_52w": 2.4,
       "volatility": 51.6,
-      "turnover_rub": 19466004.0,
+      "turnover_rub": 44986257.0,
       "in_index": false,
       "ranks": {
-        "импульс": 6,
+        "импульс": 11,
         "разворот": 1,
-        "у максимума": 63,
-        "спокойствие": 28
+        "у максимума": 84,
+        "спокойствие": 41
       },
-      "score": 98,
-      "score_norm": 62.7,
-      "rank": 16,
+      "score": 137,
+      "score_norm": 60.4,
+      "rank": 27,
       "reasons": [
-        "упала на -28% за месяц, отрасль «нефтегаз» -2% — отстаёт на 25 п.п."
+        "упала на -28% за месяц, отрасль «нефтегаз» -2% — отстаёт на 26 п.п."
       ]
     },
     {
       "secid": "VKCO",
       "name": "МКПАО \"ВК\"",
-      "price": 118.75,
+      "price": 118.25,
       "price_source": "живая доска",
       "hist_last_date": "2026-09-02",
       "hist_last_close": 118.4,
-      "price_moved_since_hist": 0.3,
+      "price_moved_since_hist": -0.13,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": -53.35,
       "reversal_1m": -23.34,
-      "pos_52w": 1.4,
+      "pos_52w": 1.1,
       "volatility": 68.7,
-      "turnover_rub": 145069572.0,
+      "turnover_rub": 665467511.0,
       "in_index": true,
       "ranks": {
-        "импульс": 62,
+        "импульс": 82,
         "разворот": 2,
-        "у максимума": 64,
-        "спокойствие": 50
+        "у максимума": 85,
+        "спокойствие": 68
       },
-      "score": 178,
-      "score_norm": 31.0,
-      "rank": 56,
+      "score": 237,
+      "score_norm": 30.7,
+      "rank": 74,
       "reasons": [
-        "упала на -23% за месяц, отрасль «технологии» -5% — отстаёт на 18 п.п."
+        "упала на -23% за месяц, отрасль «технологии» -6% — отстаёт на 18 п.п."
       ]
     }
   ],
-  "blocked_count": 7
+  "blocked_count": 8
 }
