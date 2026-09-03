@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-09-03T12:04:03Z",
+  "generated_utc": "2026-09-03T19:16:29Z",
   "trade_date": "2026-09-03",
-  "index_week_pct": 1.5041004260778035,
+  "index_week_pct": 1.2540403139901235,
   "calendar": [
     {
       "date": "2026-09-08",
@@ -32,34 +32,52 @@
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
       "type": "погашение"
+    },
+    {
+      "date": "2026-10-17",
+      "what": "погашение ИКС5Фин3P2",
+      "secid": "RU000A1075S4",
+      "type": "погашение"
+    },
+    {
+      "date": "2026-10-18",
+      "what": "погашение ДОМ 2P5",
+      "secid": "RU000A109U97",
+      "type": "погашение"
+    },
+    {
+      "date": "2026-11-12",
+      "what": "погашение КраснодКр3",
+      "secid": "RU000A1011B5",
+      "type": "погашение"
     }
   ],
   "candidates": [
     {
       "secid": "BANEP",
       "name": "Башнефт ап",
-      "price": 734.0,
+      "price": 739.5,
       "price_source": "живая доска",
       "hist_last_date": "2026-09-02",
       "hist_last_close": 726.5,
-      "price_moved_since_hist": 1.03,
+      "price_moved_since_hist": 1.79,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": -1.23,
       "reversal_1m": -27.78,
-      "pos_52w": 2.4,
+      "pos_52w": 4.1,
       "volatility": 51.6,
-      "turnover_rub": 44986257.0,
+      "turnover_rub": 89085672.0,
       "in_index": false,
       "ranks": {
-        "импульс": 11,
+        "импульс": 13,
         "разворот": 1,
-        "у максимума": 84,
-        "спокойствие": 41
+        "у максимума": 95,
+        "спокойствие": 43
       },
-      "score": 137,
-      "score_norm": 60.4,
-      "rank": 27,
+      "score": 152,
+      "score_norm": 61.1,
+      "rank": 28,
       "reasons": [
         "упала на -28% за месяц, отрасль «нефтегаз» -2% — отстаёт на 26 п.п."
       ]
@@ -67,32 +85,32 @@
     {
       "secid": "VKCO",
       "name": "МКПАО \"ВК\"",
-      "price": 118.25,
+      "price": 121.45,
       "price_source": "живая доска",
       "hist_last_date": "2026-09-02",
       "hist_last_close": 118.4,
-      "price_moved_since_hist": -0.13,
+      "price_moved_since_hist": 2.58,
       "jump_pct": null,
       "excluded": null,
       "momentum_12_1": -53.35,
       "reversal_1m": -23.34,
-      "pos_52w": 1.1,
+      "pos_52w": 2.6,
       "volatility": 68.7,
-      "turnover_rub": 665467511.0,
+      "turnover_rub": 1207929209.0,
       "in_index": true,
       "ranks": {
-        "импульс": 82,
+        "импульс": 92,
         "разворот": 2,
-        "у максимума": 85,
-        "спокойствие": 68
+        "у максимума": 96,
+        "спокойствие": 77
       },
-      "score": 237,
-      "score_norm": 30.7,
-      "rank": 74,
+      "score": 267,
+      "score_norm": 30.8,
+      "rank": 82,
       "reasons": [
         "упала на -23% за месяц, отрасль «технологии» -6% — отстаёт на 18 п.п."
       ]
     }
   ],
-  "blocked_count": 8
+  "blocked_count": 9
 }
