@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-09-16T19:31:50Z",
-  "trade_date": "2026-09-16",
-  "index_week_pct": -1.0433404217537912,
+  "generated_utc": "2026-09-17T19:42:14Z",
+  "trade_date": "2026-09-17",
+  "index_week_pct": -1.4103216076877256,
   "calendar": [
     {
       "date": "2026-09-28",
@@ -13,12 +13,6 @@
       "date": "2026-10-07",
       "what": "погашение ОФЗ 26226",
       "secid": "SU26226RMFS9",
-      "type": "погашение"
-    },
-    {
-      "date": "2026-10-17",
-      "what": "погашение ИКС5Фин3P2",
-      "secid": "RU000A1075S4",
       "type": "погашение"
     },
     {
@@ -47,5 +41,5 @@
     }
   ],
   "candidates": [],
-  "blocked_count": 10
+  "blocked_count": 9
 }
