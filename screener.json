@@ -1,15 +1,8 @@
 {
-  "generated_utc": "2026-10-14T20:07:54Z",
-  "trade_date": "2026-10-14",
+  "generated_utc": "2026-10-15T20:16:45Z",
+  "trade_date": "2026-10-15",
   "index_week_pct": 3.2824254451054413,
-  "calendar": [
-    {
-      "date": "2026-12-23",
-      "what": "погашение ОФЗ 29016",
-      "secid": "SU29016RMFS1",
-      "type": "погашение"
-    }
-  ],
+  "calendar": [],
   "candidates": [],
   "blocked_count": 1
 }
