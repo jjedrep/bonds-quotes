@@ -1,8 +1,27 @@
 {
-  "generated_utc": "2026-10-15T20:16:45Z",
-  "trade_date": "2026-10-15",
-  "index_week_pct": 3.2824254451054413,
-  "calendar": [],
+  "generated_utc": "2026-10-16T19:32:07Z",
+  "trade_date": "2026-10-16",
+  "index_week_pct": 5.122800943457473,
+  "calendar": [
+    {
+      "date": "2026-10-30",
+      "what": "погашение ТрнфБО1P13",
+      "secid": "RU000A1010B7",
+      "type": "погашение"
+    },
+    {
+      "date": "2026-11-17",
+      "what": "погашение ВЭБ1P-18",
+      "secid": "RU000A1013P1",
+      "type": "погашение"
+    },
+    {
+      "date": "2026-12-23",
+      "what": "погашение ОФЗ 29016",
+      "secid": "SU29016RMFS1",
+      "type": "погашение"
+    }
+  ],
   "candidates": [],
   "blocked_count": 1
 }
