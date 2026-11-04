@@ -1,14 +1,8 @@
 {
-  "generated_utc": "2026-11-03T21:42:15Z",
-  "trade_date": "2026-11-03",
-  "index_week_pct": -3.0484591273473804,
+  "generated_utc": "2026-11-04T21:49:11Z",
+  "trade_date": "2026-11-04",
+  "index_week_pct": -3.2038146123752886,
   "calendar": [
-    {
-      "date": "2026-11-17",
-      "what": "погашение ВЭБ1P-18",
-      "secid": "RU000A1013P1",
-      "type": "погашение"
-    },
     {
       "date": "2026-12-23",
       "what": "погашение ОФЗ 29016",
@@ -17,5 +11,5 @@
     }
   ],
   "candidates": [],
-  "blocked_count": 1
+  "blocked_count": 2
 }
