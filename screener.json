@@ -1,15 +1,27 @@
 {
-  "generated_utc": "2026-11-04T21:49:11Z",
-  "trade_date": "2026-11-04",
-  "index_week_pct": -3.2038146123752886,
+  "generated_utc": "2026-11-05T21:55:37Z",
+  "trade_date": "2026-11-05",
+  "index_week_pct": -1.5142653409500717,
   "calendar": [
+    {
+      "date": "2026-12-12",
+      "what": "погашение ТомскАдм 9",
+      "secid": "RU000A10A6J1",
+      "type": "погашение"
+    },
     {
       "date": "2026-12-23",
       "what": "погашение ОФЗ 29016",
       "secid": "SU29016RMFS1",
       "type": "погашение"
+    },
+    {
+      "date": "2027-02-03",
+      "what": "погашение ОФЗ 26207",
+      "secid": "SU26207RMFS9",
+      "type": "погашение"
     }
   ],
   "candidates": [],
-  "blocked_count": 2
+  "blocked_count": 4
 }
