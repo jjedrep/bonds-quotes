@@ -1,8 +1,14 @@
 {
-  "generated_utc": "2026-11-06T21:28:07Z",
-  "trade_date": "2026-11-06",
-  "index_week_pct": -1.3290518951738273,
+  "generated_utc": "2026-11-10T00:07:36Z",
+  "trade_date": "2026-11-10",
+  "index_week_pct": 0.42853715953861116,
   "calendar": [
+    {
+      "date": "2026-11-13",
+      "what": "погашение СистемБ1P5",
+      "secid": "RU000A0JWZY6",
+      "type": "погашение"
+    },
     {
       "date": "2026-11-17",
       "what": "погашение ВЭБ1P-18",
@@ -23,5 +29,5 @@
     }
   ],
   "candidates": [],
-  "blocked_count": 4
+  "blocked_count": 3
 }
